@@ -1,0 +1,329 @@
+const menu = document.querySelector('.menu');
+const menuSection = menu.querySelector('.menu-section');
+const menuArrow = menu.querySelector('.menu-mobile-arrow');
+const menuClosed = menu.querySelector('.menu-mobile-close');
+const menuToggle = document.querySelector('.menu-mobile-toggle');
+const menuOverlay = document.querySelector('.overlay');
+let subMenu;
+
+menuSection.addEventListener('click', (e) => {
+	if (!menu.classList.contains('active')) {
+		return;
+	}
+	if (e.target.closest('.menu-item-has-children')) {
+		const hasChildren = e.target.closest('.menu-item-has-children');
+		showSubMenu(hasChildren);
+	}
+});
+
+menuArrow.addEventListener('click', () => {
+	hideSubMenu();
+});
+
+menuToggle.addEventListener('click', () => {
+	toggleMenu();
+});
+
+menuClosed.addEventListener('click', () => {
+	toggleMenu();
+});
+
+menuOverlay.addEventListener('click', () => {
+	toggleMenu();
+});
+
+// Show & Hide Toggle Menu Function
+function toggleMenu() {
+	menu.classList.toggle('active');
+	menuOverlay.classList.toggle('active');
+}
+
+// Show the Mobile Side Menu Function
+function showSubMenu(hasChildren) {
+	subMenu = hasChildren.querySelector('.menu-subs');
+	subMenu.classList.add('active');
+	subMenu.style.animation = 'slideLeft 0.5s ease forwards';
+	const menuTitle = hasChildren.querySelector('i').parentNode.childNodes[0].textContent;
+	menu.querySelector('.menu-mobile-title').innerHTML = menuTitle;
+	menu.querySelector('.menu-mobile-header').classList.add('active');
+}
+
+// Hide the Mobile Side Menu Function
+function hideSubMenu() {
+	subMenu.style.animation = 'slideRight 0.5s ease forwards';
+	setTimeout(() => {
+		subMenu.classList.remove('active');
+	}, 300);
+
+	menu.querySelector('.menu-mobile-title').innerHTML = '';
+	menu.querySelector('.menu-mobile-header').classList.remove('active');
+}
+
+// Windows Screen Resizes Function
+window.onresize = function () {
+	if (this.innerWidth > 991) {
+		if (menu.classList.contains('active')) {
+			toggleMenu();
+		}
+	}
+};
+
+
+jQuery(document).ready(function(){
+	jQuery("#images_change1").mouseenter(function(){
+		jQuery("#images_change1").attr('src', './images/Sony_DualSense.png');
+	});
+	jQuery("#images_change1").mouseleave(function(){
+		jQuery("#images_change1").attr('src', './images/70211-apple-mockup-pro-drive-air-laptops-disc.png');
+	});
+
+	jQuery("#images_change2").mouseenter(function(){
+		jQuery("#images_change2").attr('src', './images/ipad-mini-select-wifi-purple-202109_FMT_WHH.png');
+	});
+	jQuery("#images_change2").mouseleave(function(){
+		jQuery("#images_change2").attr('src', './images/Sony_DualSense.png');
+	});
+
+	jQuery("#images_change3").mouseenter(function(){
+		jQuery("#images_change3").attr('src', './images/MME73.png');
+	});
+	jQuery("#images_change3").mouseleave(function(){
+		jQuery("#images_change3").attr('src', './images/ipad-mini-select-wifi-purple-202109_FMT_WHH.png');
+	});
+
+	jQuery("#images_change4").mouseenter(function(){
+		jQuery("#images_change4").attr('src', './images/Irusu_Monster_VR_Box_Headset_3.png');
+	});
+	jQuery("#images_change4").mouseleave(function(){
+		jQuery("#images_change4").attr('src', './images/MME73.png');
+	});
+
+	jQuery("#images_change5").mouseenter(function(){
+		jQuery("#images_change5").attr('src', './images/70211-apple-mockup-pro-drive-air-laptops-disc.png');
+	});
+	jQuery("#images_change5").mouseleave(function(){
+		jQuery("#images_change5").attr('src', './images/Irusu_Monster_VR_Box_Headset_3.png');
+	});
+
+	jQuery(".list-item.text-center.one").mouseenter(function(){
+		jQuery(".list-item.text-center.one > a > img ").attr('src', './images/71Nf9OECD+L._AC_SL1500_.png');
+	});
+	jQuery(".list-item.text-center.one").mouseleave(function(){
+		jQuery(".list-item.text-center.one > a > img ").attr('src', './images/61-tgcn-R3L._SX425_.png');
+	});
+
+	jQuery(".list-item.text-center.two").mouseenter(function(){
+		jQuery(".list-item.text-center.two > a > img ").attr('src', './images/apple_ipad-pro-spring21_hero_04202021_big.jpg.large.png');
+	});
+	jQuery(".list-item.text-center.two").mouseleave(function(){
+		jQuery(".list-item.text-center.two > a > img ").attr('src', './images/71Nf9OECD+L._AC_SL1500_.png');
+	});
+
+	jQuery(".list-item.text-center.three").mouseenter(function(){
+		jQuery(".list-item.text-center.three > a > img ").attr('src', './images/apple-iphone-11-pro-max_156819558940.png');
+	});
+	jQuery(".list-item.text-center.three").mouseleave(function(){
+		jQuery(".list-item.text-center.three > a > img ").attr('src', './images/apple_ipad-pro-spring21_hero_04202021_big.jpg.large.png');
+	});
+
+	jQuery(".list-item.text-center.four").mouseenter(function(){
+		jQuery(".list-item.text-center.four > a > img ").attr('src', './images/61-tgcn-R3L._SX425_.png');
+	});
+	jQuery(".list-item.text-center.four").mouseleave(function(){
+		jQuery(".list-item.text-center.four > a > img ").attr('src', './images/apple-iphone-11-pro-max_156819558940.png');
+	});
+});
+
+
+$(document).ready(function(){
+	var submitIcon = $('.searchbox-icon');
+	var inputBox = $('.searchbox-input');
+	var searchBox = $('.searchbox');
+	var isOpen = false;
+	submitIcon.click(function(){
+		if(isOpen == false){
+			searchBox.addClass('searchbox-open');
+			inputBox.focus();
+			isOpen = true;
+		} else {
+			searchBox.removeClass('searchbox-open');
+			inputBox.focusout();
+			isOpen = false;
+		}
+	});  
+	 submitIcon.mouseup(function(){
+			return false;
+		});
+	searchBox.mouseup(function(){
+			return false;
+		});
+	$(document).mouseup(function(){
+			if(isOpen == true){
+				$('.searchbox-icon').css('display','block');
+				submitIcon.click();
+			}
+		});
+});
+	function buttonUp(){
+		var inputVal = $('.searchbox-input').val();
+		inputVal = $.trim(inputVal).length;
+		if( inputVal !== 0){
+			$('.searchbox-icon').css('display','none');
+		} else {
+			$('.searchbox-input').val('');
+			$('.searchbox-icon').css('display','block');
+		}
+	}
+
+$(document).ready(function(){
+	$('.most_popular_img.one > img').mouseenter(function(){
+		$('.most_popular_img.one > img').attr('src', 'images/apple_ipad-pro-spring21_hero_04202021_big.jpg.large.png');
+	});
+	$('.most_popular_img.one > img').mouseleave(function(){
+		$('.most_popular_img.one > img').attr('src', 'images/71Nf9OECD+L._AC_SL1500_.png');
+	});
+
+	$('.most_popular_img.two > img').mouseenter(function(){
+		$('.most_popular_img.two > img').attr('src', 'images/apple-iphone-11-pro-max_156819558940.png');
+	});
+	$('.most_popular_img.two > img').mouseleave(function(){
+		$('.most_popular_img.two > img').attr('src', 'images/apple_ipad-pro-spring21_hero_04202021_big.jpg.large.png');
+	});
+
+	$('.most_popular_img.three > img').mouseenter(function(){
+		$('.most_popular_img.three > img').attr('src', 'images/61-tgcn-R3L._SX425_.png');
+	});
+	$('.most_popular_img.three > img').mouseleave(function(){
+		$('.most_popular_img.three > img').attr('src', 'images/apple-iphone-11-pro-max_156819558940.png');
+	});
+
+	$('.most_popular_img.four > img').mouseenter(function(){
+		$('.most_popular_img.four > img').attr('src', 'images/71Nf9OECD+L._AC_SL1500_.png');
+	});
+	$('.most_popular_img.four > img').mouseleave(function(){
+		$('.most_popular_img.four > img').attr('src', 'images/61-tgcn-R3L._SX425_.png');
+	});
+});
+/*inner product-page start*/
+$(document).ready(function(){
+	$('.product_list_image.first > a > img').mouseenter(function(){
+		$('.product_list_image.first > a > img').attr('src', 'images/lightheadphone.jpg');
+	});
+	$('.product_list_image.first > a> img').mouseleave(function(){
+		$('.product_list_image.first > a>  img').attr('src', 'images/blackcamera.jpg');
+	});
+	
+	$('.product_list_image.second > a > img').mouseenter(function(){
+		$('.product_list_image.second > a > img').attr('src', 'images/black-camera1.jpg');
+	});
+	$('.product_list_image.second > a> img').mouseleave(function(){
+		$('.product_list_image.second > a>  img').attr('src', 'images/iphonelist.jpg');
+	});
+	
+	$('.product_list_image.third > a > img').mouseenter(function(){
+		$('.product_list_image.third > a > img').attr('src', 'images/list-mobiless.jpg');
+	});
+	$('.product_list_image.third > a> img').mouseleave(function(){
+		$('.product_list_image.third > a>  img').attr('src', 'images/bluegamepad.jpg');
+	});
+	
+	$('.product_list_image.fourth > a > img').mouseenter(function(){
+		$('.product_list_image.fourth > a > img').attr('src', 'images/bluegamepad.jpg');
+	});
+	$('.product_list_image.fourth > a> img').mouseleave(function(){
+		$('.product_list_image.fourth > a>  img').attr('src', 'images/lightheadphone.jpg');
+	});
+	
+	$('.product_list_image.fifth > a > img').mouseenter(function(){
+		$('.product_list_image.fifth > a > img').attr('src', 'images/blackcamera.jpg');
+	});
+	$('.product_list_image.fifth > a> img').mouseleave(function(){
+		$('.product_list_image.fifth> a>  img').attr('src', 'images/black-camera1.jpg');
+	});
+	
+	$('.product_list_image.sixth > a > img').mouseenter(function(){
+		$('.product_list_image.sixth> a > img').attr('src', 'images/blackcamera.jpg');
+	});
+	$('.product_list_image.sixth > a> img').mouseleave(function(){
+		$('.product_list_image.sixth > a>  img').attr('src', 'images/vrsleep.jpg');
+	});
+	
+	$('.product_list_image.seventh> a > img').mouseenter(function(){
+		$('.product_list_image.seventh > a > img').attr('src', 'images/lightheadphone.jpg');
+	});
+	$('.product_list_image.seventh > a> img').mouseleave(function(){
+		$('.product_list_image.seventh > a>  img').attr('src', 'images/listhead1.jpg');
+	});
+	
+	$('.product_list_image.eighth > a > img').mouseenter(function(){
+		$('.product_list_image.eighth > a > img').attr('src', 'images/iphonelist.jpg');
+	});
+	$('.product_list_image.eighth > a> img').mouseleave(function(){
+		$('.product_list_image.eighth> a>  img').attr('src', 'images/ipad-game.jpg');
+	});
+	
+	$('.product_list_image.ninth > a > img').mouseenter(function(){
+		$('.product_list_image.ninth> a > img').attr('src', 'images/vrsleep.jpg');
+	});
+	$('.product_list_image.ninth > a> img').mouseleave(function(){
+		$('.product_list_image.ninth > a>  img').attr('src', 'images/listlaptop.jpg');
+	});
+	});
+/*inner product-page end*/
+var modal = document.getElementById("myModal");
+window.onclick = function(event) {
+	if (event.target == modal) {
+	  modal.style.display = "none";
+	}
+}
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+	modal.style.display = "none";
+}
+function showDetails(animal) {
+	document.getElementById('poupo').innerHTML = animal.innerHTML;
+	modal.style.display = "block";
+	$("#poupo .most_popular_heading").append("<div class='counter'><span class='down' onClick='decreaseCount(event, this)'>-</span><input type='text' value='1'><span class='up' onClick='increaseCount(event, this)'>+</span></div>");
+
+	// var theDiv = document.querySelector("#poupo .most_popular_heading");
+	// var div = document.createElement("div");
+	// theDiv.append(div);
+	// var element = document.querySelector("#poupo .most_popular_heading div");
+	// element.classList.add("counter");
+	// var theDiv = document.querySelector("#poupo .most_popular_heading > .counter");
+	// var span = document.createElement("span");
+	// theDiv.append(span);
+
+
+    // var theDiv = document.querySelector("#poupo .most_popular_heading");
+	// var div = document.createElement("div");
+	// theDiv.append(div);
+	// var element = document.querySelector("#poupo .most_popular_heading div");
+   	// element.classList.add("mystyle");
+	// var theDiv = document.querySelector("#poupo .most_popular_heading > div");
+	// var a = document.createElement("a");
+	// theDiv.append(a);
+	// document.querySelector(".mystyle > a").innerHTML = "Add To Cart";
+
+	
+}
+
+
+
+function increaseCount(a, b) {
+	var input = b.previousElementSibling;
+	var value = parseInt(input.value, 10);
+	value = isNaN(value) ? 0 : value;
+	value++;
+	input.value = value;
+}
+  
+function decreaseCount(a, b) {
+	var input = b.nextElementSibling;
+	var value = parseInt(input.value, 10);
+	if (value > 1) {
+	  value = isNaN(value) ? 0 : value;
+	  value--;
+	  input.value = value;
+	}
+}

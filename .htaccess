@@ -1,0 +1,8 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^electronics\.expoundsofttechsolution\.in$
+RewriteRule ^/?$ "https\:\/\/electronics\.expoundsofttechsolution\.in\/" [R=301,L]
+
+<IfModule mod_headers.c>    
+    Header set Access-Control-Allow-Origin *
+</IfModule>

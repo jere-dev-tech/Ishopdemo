@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	<title>template customization</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:wght@400;500;600&family=Outfit:wght@400;500;600&family=Parisienne&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/costum.js"></script>
+</head>
+
+<body>
+<div class='dashboard'>
+    <div class="dashboard-nav">
+        <header><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
+        <nav class="dashboard-nav-list"><a href="index.html" class="dashboard-nav-item">
+            Preparation </a>
+            <div class='dashboard-nav-dropdown'>
+              <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"> Template Structure </a>
+            <div class='dashboard-nav-dropdown-menu'>
+              <a href="template-structure.html" class="dashboard-nav-dropdown-item">Package Structure</a>
+              <a href="template-structure.html" class="dashboard-nav-dropdown-item">HTML Structure</a>
+              <a href="template-structure.html" class="dashboard-nav-dropdown-item">CSS Structure</a>
+            </div>
+            <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"> Template Customization </a>
+                <div class='dashboard-nav-dropdown-menu'>
+                <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Home Page</span>
+                </p></a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#home1" class="dashboard-nav-dropdown-item">Change logo</a><a href="#home2" class="dashboard-nav-dropdown-item">Change Navigation</a>
+                <a href="#home3" class="dashboard-nav-dropdown-item"> Header Icon Change</a>
+                <a href="#home4" class="dashboard-nav-dropdown-item"> Banner Image Change</a>
+                <a href="#home5" class="dashboard-nav-dropdown-item">iphone section change</a>
+                <a href="#home6" class="dashboard-nav-dropdown-item">Heading & Paragraph</a>
+                <a href="#home7" class="dashboard-nav-dropdown-item">Shop By Category Change</a>
+                <a href="#home8" class="dashboard-nav-dropdown-item">Most Popular change</a>
+                <a href="#home9" class="dashboard-nav-dropdown-item">Header & Paragraph</a>
+                <a href="#home10" class="dashboard-nav-dropdown-item">Our Brand change</a>
+                <a href="#home11" class="dashboard-nav-dropdown-item">Peyment Method heading</a>
+               <!--  <a href="#home12" class="dashboard-nav-dropdown-item">Testimonials change</a> -->
+                <a href="#home13" class="dashboard-nav-dropdown-item">Main Social Midia icon </a>
+                <a href="#home14" class="dashboard-nav-dropdown-item">Header latest blog change</a>
+                <a href="#home15" class="dashboard-nav-dropdown-item">Footer menu change</a>
+              </div>
+            </div>
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Product Page</span>
+                </p></a>
+              <div class='dashboard-nav-dropdown-menu'>
+                
+                <a href="#product1" class="dashboard-nav-dropdown-item">Change product page title</a><a href="#product2" class="dashboard-nav-dropdown-item">Change product images</a>
+                <a href="#product3" class="dashboard-nav-dropdown-item"> Change product detail</a>
+              </div>
+            </div>
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Category Page</span>
+                </p></a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#catalog1" class="dashboard-nav-dropdown-item">product list banner</a><a href="#catalog2" class="dashboard-nav-dropdown-item"> Category, filter by price,<br> colour, size and brand</a>
+                <a href="#catalog3" class="dashboard-nav-dropdown-item">Change grid, list and <br>sort by</a>
+                <a href="#catalog4" class="dashboard-nav-dropdown-item"> Change catalog product</a>
+                <a href="#catalog5" class="dashboard-nav-dropdown-item">Change catalog pagination</a>
+              </div>
+            </div>
+
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>About Us Page</span>
+                </p></a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#about1" class="dashboard-nav-dropdown-item">About US Banner</a>
+                <a href="#about2" class="dashboard-nav-dropdown-item">about Play Your Mood <br>heading and paragraph</a>
+                <a href="#about3" class="dashboard-nav-dropdown-item">About image and detail</a>
+              </div>
+            </div>
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Gallery Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#gallery1" class="dashboard-nav-dropdown-item">Gallery banner</a>
+                <a href="#gallery2" class="dashboard-nav-dropdown-item">Gallery images</a>
+              </div>
+            </div>
+
+            <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Blog Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#blog1" class="dashboard-nav-dropdown-item">Blog banner</a>
+                <a href="#blog2" class="dashboard-nav-dropdown-item">Blog Info</a>
+              </div>
+            </div>
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Contact Us Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#contact1" class="dashboard-nav-dropdown-item">Contact banner</a>
+               <!--  <a href="#contact2" class="dashboard-nav-dropdown-item">Contact Images</a> -->
+                <a href="#contact3" class="dashboard-nav-dropdown-item">Contact information</a>
+                <a href="#contact4" class="dashboard-nav-dropdown-item">Contact location</a>
+                <a href="#contact5" class="dashboard-nav-dropdown-item">Contact form heading <br>and paragraph</a>
+                <a href="#contact6" class="dashboard-nav-dropdown-item">Contact form</a>
+              </div>
+            </div>
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Faq Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#faq1" class="dashboard-nav-dropdown-item">Faq banner and heading</a>
+                <a href="#faq2" class="dashboard-nav-dropdown-item">heading and paragraph</a>
+                <a href="#faq3" class="dashboard-nav-dropdown-item">Faq section</a>
+              </div>
+            </div>
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Terms & Condition Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#terms1" class="dashboard-nav-dropdown-item">Terms & Condition banner <br> & heading</a>
+                <a href="#terms2" class="dashboard-nav-dropdown-item">Terms & Condition heading <br> & paragraph</a>
+              </div>
+            </div>
+
+       
+
+            <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Privacy policy Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#privacy1" class="dashboard-nav-dropdown-item">Privacy policy banner <br>and heading</a>
+                <a href="#privacy2" class="dashboard-nav-dropdown-item">Privacy policy detail</a>
+              </div>
+            </div>
+
+              <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Return policy Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#return1" class="dashboard-nav-dropdown-item">Return policy banner <br>and heading</a>
+                <a href="#return2" class="dashboard-nav-dropdown-item">Return policy detail</a>
+              </div>
+            </div>
+			  <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <p class="home_category">
+                <span>Cart Page</span>
+                </p>
+              </a>
+              <div class='dashboard-nav-dropdown-menu'>
+                <a href="#story1" class="dashboard-nav-dropdown-item">cart banner and <br>heading</a>
+                <a href="#story2" class="dashboard-nav-dropdown-item">cart heading</a>
+                <a href="#story3" class="dashboard-nav-dropdown-item">cart image & detail</a>
+              </div>
+            </div> 
+
+                </div>
+            </div>
+          <div class="nav-item-divider"></div>
+          <a href="credits.html" class="dashboard-nav-item">Credits </a>
+        </nav>
+    </div>
+    <div class='dashboard-app'>
+        <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+            <h1 class="documentation_title">HTML Templates Documentation</h1>
+        </header>
+<div class="new_html_main">
+ <div class="new_html_main_inner">
+ 
+   <div class="new_html_main_section one">
+   <h1>Template Customization</h1> 
+    </div>
+
+<div class="html_Structure" id="html_file">
+ <div class="html_Structure_inner">
+
+  <h1>Changing the Logo</h1>
+  <p>In Html Website Template, You Can Use Either Custom Image Or Text Logo.</p>
+  </div>
+</div>
+
+ <div class="css_Structure_section_two">
+<p>Attention: Html Website Template Is An Html Product. Thus, The Logo Should Be Changed Manually In Every Target .Html File. The Best Part Of The Day.</p>
+</div>
+
+
+<div class="css_Structure" id=" css_file">
+ <div class="css_Structure_inner" id="home1">
+ 
+   <h1 class="heading_css_structure">Changing the Logo</h1>
+   <p>Header logo for the desktop version of the site should be changed in Page Head section of the target page with the <b>.logo</b> class.</p>
+
+  <pre><code>
+        &lt; !-- Logo Start--&gt;
+        &lt; div class="header-item-left"&gt;
+            &lt;a href="./index.html" class="brand"&gt;
+                &lt; img src='./images/electronics_logo_w.png' alt='logo' /&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt; !-- logo End--&gt;
+  </code>
+</pre>
+
+
+  </div>
+</div>
+
+
+<div class="navigation_setup section_color" id="home2">
+ <div class="navigation_setup_inner">
+ 
+ 
+   <h1>Template navigation setup</h1>
+   <p>HTML Website Template uses <b>Navigation Start</b> plugin for implementing website navigation.</p>
+
+    <h3>Adding a new menu item</h3>
+    <p>To add a new menu item to an existing menu, you should define a new list element on the first navigation level:</p>
+  <pre><code>
+        <p><img src="./img/navbar.png" alt="navbar" /></p>
+    </code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home3">
+  <div class="navigation_setup_inner">
+    <h1>Header Icon Change</h1>
+    <pre><code><p><img src="./img/menu-icon.png" alt="Icon" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home4">
+  <div class="navigation_setup_inner">
+     <h1>Banner Image Change</h1>
+     <pre><code><p><img src="./img/banner.png" alt="banner" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home5">
+ <div class="navigation_setup_inner">
+ <h1>iPhone-14 Concept Design Section Change</h1>
+ <pre><code><p><img src="./img/fashion_woman.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home6">
+ <div class="navigation_setup_inner">
+ <h1>High Fidelity Audio Headphones Section change</h1>
+ <pre><code><p><img src="./img/header-product-heading-paragraph.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home7">
+ <div class="navigation_setup_inner">
+ <h1>Shop By Category Change</h1>
+ <pre><code><p><img src="./img/header-product.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home8">
+ <div class="navigation_setup_inner">
+ <h1>Most Popular Products Change</h1>
+ <pre><code><p><img src="./img/header-fashion-men.png" alt="" /></p></code></pre>
+  </div>
+</div>
+<div class="navigation_setup section_color" id="home9">
+ <div class="navigation_setup_inner">
+ <h1>Where does it come from  change</h1>
+ <pre><code><p><img src="./img/instragram-feed-heading-paragraph.png" alt="" /></p></code></pre>
+  </div>
+</div>
+<div class="navigation_setup section_color" id="home10">
+  <div class="navigation_setup_inner">
+    <h1>Our Brand change</h1>
+    <pre><code><p><img src="./img/instragram-feed.png" alt="" /></p></code></pre>
+  </div>
+</div>
+<div class="navigation_setup section_color" id="home11">
+  <div class="navigation_setup_inner">
+    <h1>Peyment Method heading change</h1>
+    <pre><code><p><img src="./img/testimonials-heading.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<!-- <div class="navigation_setup section_color" id="home12">
+  <div class="navigation_setup_inner">
+    <h1>Testimonials change</h1>
+    <pre><code><p><img src="./img/testimonials.png" alt="" /></p></code></pre>
+  </div>
+</div>
+ -->
+<div class="navigation_setup section_color" id="home13">
+  <div class="navigation_setup_inner">
+    <h1>Main Social Midia icon Section Change</h1>
+    <pre><code><p><img src="./img/latest-blog-heading.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home14">
+  <div class="navigation_setup_inner">
+    <h1>Header latest blog change</h1>
+    <pre><code><p><img src="./img/header-blog.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="home15">
+ <div class="navigation_setup_inner">
+  <h1>Change Footer Menu</h1>
+   <pre><code><p><img src="./img/footer1.png" alt="" /></p></code></pre>
+   <!-- <pre><code><p><img src="./img/footer2.png" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/footer3.png" alt="" /></p></code></pre> -->
+   <pre><code><p><img src="./img/footer4.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+ 
+ 
+   <h1>Product Page</h1>
+   
+   <div class="navigation_setup section_color"  id="product1">
+ <div class="navigation_setup_inner">
+  <h1>Change product page title</h1>
+   <pre><code><p><img src="./img/product-title.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="product2">
+ <div class="navigation_setup_inner">
+  <h1>Change product images</h1>
+   <pre><code><p><img src="./img/product_page_images.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="product3">
+ <div class="navigation_setup_inner">
+  <h1>Change product heading, price,Type, Weight Material, Vendor, Availability ,Quantity and add to card</h1>
+   <pre><code><p><img src="./img/product_page_detail1.png" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/product_page_detail2.png" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/product_page_detail3.png" alt="" /></p></code></pre>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<div class="navigation_setup section_color">
+ <div class="navigation_setup_inner">
+  <h1>product list Page</h1>
+<div class="navigation_setup section_color" id="catalog1">
+ <div class="navigation_setup_inner">
+ <!--  <h1>Change catalog banner</h1> -->
+   <pre><code><p><img src="./img/shop banner.PNG" alt="" /></p></code></pre>
+  </div>
+</div>   
+<div class="navigation_setup section_color" id="catalog2">
+ <div class="navigation_setup_inner">
+  <h1>Change category, filter by price, brand ,colour, size and Availability </h1>
+   <pre><code><p><img src="./img/catalog1.PNG" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/catalog2.PNG" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/catalog3.PNG" alt="" /></p></code></pre>
+   <!-- <pre><code><p><img src="./img/catalog4.PNG" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/catalog5.PNG" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/catalog6.PNG" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/catalog7.PNG" alt="" /></p></code></pre>
+   <pre><code><p><img src="./img/catalog8.PNG" alt="" /></p></code></pre> -->
+  </div>
+</div>
+<div class="navigation_setup section_color" id="catalog3">
+ <div class="navigation_setup_inner">
+  <h1>Change grid, list and sort by</h1>
+   <pre><code><p><img src="./img/catlog_grid list selling.PNG" alt="" /></p></code></pre>
+  </div>
+</div> 
+
+<div class="navigation_setup section_color" id="catalog4">
+ <div class="navigation_setup_inner">
+  <h1>Change catalog product</h1>
+   <pre><code><p><img src="./img/catalog product.PNG" alt="" /></p></code></pre>
+  </div>
+</div>
+
+<div class="navigation_setup section_color" id="catalog5">
+ <div class="navigation_setup_inner">
+  <h1>Change catalog pagination </h1>
+   <pre><code><p><img src="./img/pagination.PNG" alt="" /></p></code></pre>
+  </div>
+</div>   
+
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>About Us Page</h1>
+    <div class="navigation_setup section_color" id="about1">
+      <div class="navigation_setup_inner">
+        <h1>Change About US Banner</h1>
+        <pre><code><p><img src="./img/about banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+    <div class="navigation_setup section_color" id="about2">
+      <div class="navigation_setup_inner">
+        <h1>Change about Play Your Mood heading and paragraph </h1>
+        <pre><code><p><img src="./img/about our story.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="about3">
+      <div class="navigation_setup_inner">
+        <h1>Change about image</h1>
+      <!--   <pre><code><p><img src="./img/about image detail.PNG" alt="" /></p></code></pre> -->
+        <pre><code><p><img src="./img/about image and detail.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+          
+  </div>
+</div>
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Gallery</h1>
+    <div class="navigation_setup section_color" id="gallery1">
+      <div class="navigation_setup_inner">
+        <h1>Change gallery banner</h1>
+        <pre><code><p><img src="./img/gallery banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="gallery2">
+      <div class="navigation_setup_inner">
+        <h1>Change gallery images</h1>
+        <pre><code><p><img src="./img/gallery images.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Blog</h1>
+    <div class="navigation_setup section_color" id="blog1">
+      <div class="navigation_setup_inner">
+        <h1>Change blog banner</h1>
+        <pre><code><p><img src="./img/blog banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="blog2">
+      <div class="navigation_setup_inner">
+        <h1>Change Blog </h1>
+        <pre><code><p><img src="./img/Blog.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Contact Us Page </h1>
+    <div class="navigation_setup section_color" id="contact1">
+      <div class="navigation_setup_inner">
+        <h1>Change Contact banner</h1>
+        <pre><code><p><img src="./img/contact banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+   <!--  <div class="navigation_setup section_color" id="contact2">
+      <div class="navigation_setup_inner">
+        <h1>Change Contact Images </h1>
+        <pre><code><p><img src="./img/contact images.png" alt="" /></p></code></pre>
+      </div>
+    </div> -->
+
+    <div class="navigation_setup section_color" id="contact3">
+      <div class="navigation_setup_inner">
+        <h1>Change Contact information </h1>
+        <pre><code><p><img src="./img/contact1.png" alt="" /></p></code></pre>
+        <pre><code><p><img src="./img/contact2.png" alt="" /></p></code></pre>
+       <!--  <pre><code><p><img src="./img/contact3.png" alt="" /></p></code></pre>
+        <pre><code><p><img src="./img/contact4.png" alt="" /></p></code></pre> -->
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="contact4">
+      <div class="navigation_setup_inner">
+        <h1>Change Contact location </h1>
+        <pre><code><p><img src="./img/location.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="contact5">
+      <div class="navigation_setup_inner">
+        <h1>Change Contact form heading </h1>
+        <pre><code><p><img src="./img/contact form heading.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="contact6">
+      <div class="navigation_setup_inner">
+        <h1>Change Contact form </h1>
+        <pre><code><p><img src="./img/contact form 1.png" alt="" /></p></code></pre>
+   <!--      <pre><code><p><img src="./img/contact form 2.png" alt="" /></p></code></pre> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Faq Page </h1>
+    <div class="navigation_setup section_color" id="faq1">
+      <div class="navigation_setup_inner">
+        <h1>Change Faq banner and heading</h1>
+        <pre><code><p><img src="./img/faq banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="faq2">
+      <div class="navigation_setup_inner">
+        <h1>Change Faq paragraph </h1>
+        <pre><code><p><img src="./img/faq heading paragraph.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="faq3">
+      <div class="navigation_setup_inner">
+        <h1>Change Faq section</h1>
+        <pre><code><p><img src="./img/faq section.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Terms & Condition Page </h1>
+    <div class="navigation_setup section_color" id="terms1">
+      <div class="navigation_setup_inner">
+        <h1>Change Terms & Condition banner and heading</h1>
+        <pre><code><p><img src="./img/term banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="terms2">
+      <div class="navigation_setup_inner">
+        <h1>Change Terms & Condition heading and paragraph </h1>
+        <pre><code><p><img src="./img/term & condition.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Privacy policy Page </h1>
+    <div class="navigation_setup section_color" id="privacy1">
+      <div class="navigation_setup_inner">
+        <h1>Change Privacy policy banner and heading</h1>
+        <pre><code><p><img src="./img/privacy policy banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="privacy2">
+      <div class="navigation_setup_inner">
+        <h1>Change privacy policy detail </h1>
+        <pre><code><p><img src="./img/privacy policy detail.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Return policy Page </h1>
+    <div class="navigation_setup section_color" id="return1">
+      <div class="navigation_setup_inner">
+        <h1>Change Return policy banner and heading</h1>
+        <pre><code><p><img src="./img/return policy banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="return2">
+      <div class="navigation_setup_inner">
+        <h1>Change Return policy detail </h1>
+        <pre><code><p><img src="./img/return policy detail.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="navigation_setup section_color">
+  <div class="navigation_setup_inner">
+    <h1>Cart Page </h1>
+    <div class="navigation_setup section_color" id="story1">
+      <div class="navigation_setup_inner">
+        <h1>Change Cart banner and heading</h1>
+        <pre><code><p><img src="./img/our story banner.PNG" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="story2">
+      <div class="navigation_setup_inner">
+        <h1>Change Cart heading </h1>
+        <pre><code><p><img src="./img/our story heading.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+    <div class="navigation_setup section_color" id="story3">
+      <div class="navigation_setup_inner">
+        <h1>Change Cart image & detail </h1>
+        <pre><code><p><img src="./img/our story image.png" alt="" /></p></code></pre>
+      </div>
+    </div>
+
+  </div>
+</div> 
+
+
+
+</div>
+<!-- End smartphone / tablet look -->
+</div>
+    </div>
+</div>
+</body>
+</html>

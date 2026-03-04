@@ -1,0 +1,30 @@
+# OS files
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# Logs and temp
+*.log
+npm-debug.log*
+*.tmp
+*.temp
+.cache/
+
+# Dependencies (if added later)
+node_modules/
+
+# Optional: local env files (if any)
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Carrito | iShop Catamarca</title>
+	<link rel="shortcut icon" type="image/x-icon" href="./images/f_icon.jpg">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/header-footer.css">
+	<link rel="stylesheet" type="text/css" href="./css/media.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/ionicon.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+	<div class="preloader">
+	<div class="loader">
+	<object data="./images/Ripple-1s-200px.svg" width="170" height="170"> </object>
+	</div>
+	</div>
+	<!-- Header Section -->
+	<header class="header">
+		<div class="container">
+			<div class="wrapper">
+				<div class="header-item-left">
+					<a href="index.html" class="brand"><img src="images/electronics_logo.png" alt="iShop logo" /></a>
+				</div>
+				<!-- Navbar Section -->
+				<div class="header-item-center">
+					<div class="overlay"></div>
+					<nav class="menu" id="menu">
+						<div class="menu-mobile-header">Menú
+							<button type="button" class="menu-mobile-arrow"><i class="ion ion-ios-arrow-back"></i></button>
+							<div class="menu-mobile-title"></div>
+							<button type="button" class="menu-mobile-close"><i class="ion ion-ios-close"></i></button>
+						</div>
+						<ul class="menu-section">
+							<li class="menu-item"><a href="index.html">Inicio</a></li>
+							<li class="menu-item-has-children">
+								<a href="#">Productos <i class="ion ion-ios-arrow-down"></i></a>
+								<div class="menu-subs menu-mega menu-column-4">
+									<div class="list-item text-center one">
+										<a href="product.html">
+											<img src="./images/iphone_15.jpg" alt="iPhone 15 Pro">
+											<h4 class="title">iPhone 15 Pro</h4>
+										</a>
+									</div>
+									<div class="list-item text-center two">
+										<a href="product.html">
+											<img src="./images/gamew_4.jpg" alt="PlayStation 5 Consola">
+											<h4 class="title">PlayStation 5 Consola</h4>
+										</a>
+									</div>
+									<div class="list-item text-center three">
+										<a href="product.html">
+											<img src="./images/ipad-game.jpg"  alt="Nintendo Switch OLED">
+											<h4 class="title">Nintendo Switch OLED</h4>
+										</a>
+									</div>
+									<div class="list-item text-center four">
+										<a href="product.html">
+											<img src="./images/blackcamera.jpg"  alt="GoPro HERO Cámara">
+											<h4 class="title">GoPro HERO Cámara</h4>
+										</a>
+									</div>
+								</div>
+							</li>
+							<li class="menu-item-has-children">
+								<a href="#">Categorías <i class="ion ion-ios-arrow-down"></i></a>
+								<div class="menu-subs menu-mega menu-column-4">
+									<div class="list-item">
+										<h4 class="title">Celulares</h4>
+										<ul>
+											<li><a href="product-list.html">iPhone</a></li>
+										</ul>
+									</div>
+									<div class="list-item">
+										<h4 class="title">Juegos</h4>
+										<ul>
+											<li><a href="product-list.html">PlayStation</a></li>
+											<li><a href="product-list.html">Nintendo Switch</a></li>
+											<li><a href="product-list.html">Videojuegos</a></li>
+											<li><a href="product-list.html">Joysticks</a></li>
+										</ul>
+									</div>
+									<div class="list-item">
+										<h4 class="title">Audio</h4>
+										<ul>
+											<li><a href="product-list.html">Auriculares Beats</a></li>
+											<li><a href="product-list.html">Parlantes JBL</a></li>
+										</ul>
+										<h4 class="title">Cámaras</h4>
+										<ul>
+											<li><a href="product-list.html">GoPro</a></li>
+										</ul>
+									</div>
+									<div class="list-item">
+										<h4 class="title">Wearables</h4>
+										<ul>
+											<li><a href="product-list.html">Smartwatches Samsung</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li class="menu-item"><a href="about.html">Sobre Nosotros</a></li>
+							<li class="menu-item"><a href="contact.html">Contacto</a></li>
+						</ul>
+					</nav>
+				</div>
+
+					<div class="header-item-right">
+					<a href="cart.html" class="menu-icon"><img src="./images/Icon-ionic-ios-cart.png" alt="Carrito" /></a>
+					<button type="button" class="menu-mobile-toggle">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+<!-- cart inner page start-->
+
+<div class="main-content-wrapper">
+	<div class="main-content-inner-wrapper">
+
+<!--banner-->
+<div class="cart_banner_wrapper">
+	<div class="cart_banner_inner_wrapper">
+		<h1>Carrito</h1>
+		<h2>Inicio > Carrito</h2>
+	</div>
+	<div class="cart_banner_wrapper_overlay"></div>
+</div>
+
+
+<div class="cart_wrapper">
+	<div class="container">
+		<div class="cart_inner_wrapper">
+			<div class="cart_col" >
+				<div class="cart_heading" data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200">
+					<h1>Tu carrito</h1>
+				</div>
+			</div>
+			<div class="cart_col">
+				<div class="cart_shop" data-aos="fade-left" data-aos-delay="60" data-aos-duration="1200">
+					<p>Seguir comprando</p>
+				</div>	
+			</div>
+		</div>
+		<div class="cart_product_table">
+			<div class="cart_product_table_inner">
+				<div class="cart_product" data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200">
+					<p>Producto</p>
+				</div>
+			</div>
+			<div class="cart_product_table_inner">
+				<div class="cart_quantity_col" data-aos="fade-left" data-aos-delay="60" data-aos-duration="1200">
+					<p class="cart_quantity">Cantidad</p>
+					<p class="cart_total">Total</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="cart_product_detail">
+		
+			<div class="cart_product_col">
+				<div class="cart_pro">
+					<div class="cart_product_image" data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200">
+						<img src="images/istockphoto-184912109-170667a.jpg" alt="product"/>
+					
+					</div>
+					<div class="cart_image_detail" data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200">
+						<p>Auricular</p>
+						<p>$25.000</p>	
+					</div>
+				</div>
+			</div>	
+			<div class="cart_product_col">
+				<div class="cart_btn_inner" data-aos="fade-left" data-aos-delay="60" data-aos-duration="1200">
+				
+					<form id='myform' method='POST' class='cart_quantity_btn cart_btn_group' action='#'>
+					<input type='button' value='-' class='qtyminus minus' />
+					<input type='text' name='quantity' value='0' class='qty' />
+					<input type='button' value='+' class='qtyplus plus' />
+					</form>
+				
+					<a class="del_btn" href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+						<p class="car_btn_price">$40.000</p>
+				</div>
+			</div>
+		</div>
+		<div class="sub_total">
+			<div class="inner_sub_total" data-aos="fade-left" data-aos-delay="60" data-aos-duration="1200">
+				<h3>Subtotal $50.100</h3>
+				<p>Impuestos y envío se calculan al finalizar la compra.</p>
+				<a class="check_out_btn" href="#">Finalizar compra</a>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="best_sellers">
+	<div class="container">
+		<div class="best_sellers_inner_wrapper">
+			<h1 data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">Los más vendidos</h1>
+			<div class="best_sellers_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
+				<div class="best_sellers_col_inner">
+					<a href="product.html"><img src="images/cartheadphone.jpg" alt="best-headphone"/></a>
+					<h2>Auricular</h2>
+					<p><del class="save_price">$20.000</del>&nbsp;&nbsp;$18.000</p>
+				</div>
+			</div>
+			
+			<div class="best_sellers_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
+				<div class="best_sellers_col_inner">
+					<a href="product.html"><img src="images/cartmobile.jpg" alt="Celular"/></a>
+					<h2>Celular</h2>
+					<p><del class="save_price">$160.000</del>&nbsp;&nbsp;$155.000</p>
+				</div>
+			</div>
+			
+			<div class="best_sellers_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
+				<div class="best_sellers_col_inner">
+					<a href="product.html"><img src="images/cartlaptop.jpg" alt="Notebook"/></a>
+					
+					<h2>Notebook</h2>
+					<p><del class="save_price">$265.000</del>&nbsp;&nbsp;$255.000</p>
+				</div>
+			</div>
+			
+			<div class="best_sellers_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
+				<div class="best_sellers_col_inner">
+					<a href="product.html"><img src="images/cartgame.jpg" alt="Joystick"/></a>
+					<h2>Joystick</h2>
+					<p><del class="save_price">$15.000</del>&nbsp;&nbsp;$13.000</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+	</div>
+</div>
+<!-- cart inner page end-->
+
+<!-- Main Social Icon -->
+<div id="main_social_midia_icon">
+	<ul class="main_social_icon">
+		<li data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+		<li data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+		<li data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+	</ul>
+</div>
+<!-- Main Social Icon End -->
+	
+	
+
+
+
+
+
+
+
+<!-- footer  start -->
+<footer class="footer" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
+	<div class="container">
+		<div class="footer_inner_wrapper">
+			<div class="footer_col_1">
+				<div class="footer_logo"><a href="index.html"><img src="images/electronics_logo_w-copy.png" alt="iShop"/></a>
+					<p>Tu tienda de tecnología de confianza.</p>
+				</div>
+				<div class="footer_col_heading"><h2>Tienda</h2>
+					<p><a href="about.html">Sobre Nosotros</a></p>
+					<p><a href="contact.html">Contacto</a></p>
+				</div>
+			</div>
+			<div class="footer_col">
+				<div class="footer_col_heading"><h2>Categorías</h2>
+					<p><a href="product-list.html">iPhone</a></p>
+					<p><a href="product-list.html">PlayStation</a></p>
+					<p><a href="product-list.html">Nintendo Switch</a></p>
+					<p><a href="product-list.html">Auriculares (Beats &amp; JBL)</a></p>
+					<p><a href="product-list.html">Cámaras (GoPro)</a></p>
+					<p><a href="product-list.html">Smartwatches (Samsung)</a></p>
+				</div>
+			</div>
+			<div class="footer_col">
+				<div class="footer_col_heading"><h2>Información de contacto</h2>
+					<p><strong>iShop</strong></p>
+					<p>San Fernando del Valle de Catamarca, Argentina</p>
+					<p>Tel: +54 383 4361333</p>
+				</div>
+			</div>
+			<div class="footer_col">
+				<div class="footer_col_heading"><h2>Horario de atención</h2>
+					<p>Lunes a Viernes<br>8:00 – 13:30<br>18:00 – 21:30</p>
+					<p>Sábado<br>10:00 – 14:00</p>
+					<p>Domingo<br>Cerrado</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer_social_inner_wrapper">
+			<div class="footer_social_middle">
+				<p>© 2025 iShop. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- footer end -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+  offset:100
+  });
+</script>
+
+<script defer src="./js/script.js"></script>
+
+<script>
+
+jQuery(document).ready(($) => {
+        $('.cart_quantity_btn').on('click', '.plus', function(e) {
+            let $input = $(this).prev('input.qty');
+            let val = parseInt($input.val());
+            $input.val( val+1 ).change();
+        });
+ 
+        $('.cart_quantity_btn').on('click', '.minus', 
+            function(e) {
+            let $input = $(this).next('input.qty');
+            var val = parseInt($input.val());
+            if (val > 0) {
+                $input.val( val-1 ).change();
+            } 
+        });
+    });
+</script>
+</body>
+
+</html>
