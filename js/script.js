@@ -1,80 +1,116 @@
-const menu = document.querySelector('.menu');
-const menuSection = menu.querySelector('.menu-section');
-const menuArrow = menu.querySelector('.menu-mobile-arrow');
-const menuClosed = menu.querySelector('.menu-mobile-close');
-const menuToggle = document.querySelector('.menu-mobile-toggle');
-const menuOverlay = document.querySelector('.overlay');
-let subMenu;
-
-menuSection.addEventListener('click', (e) => {
-	if (!menu.classList.contains('active')) {
-		return;
+// Scroll-to-top button: runs first so it's never blocked; visible after scrolling down on every page
+(function initScrollToTop() {
+	var threshold = 80;
+	function setup(btn) {
+		if (!btn || btn._scrollToTopSetup) return;
+		btn._scrollToTopSetup = true;
+		function updateVisible() {
+			var y = window.pageYOffset !== undefined ? window.pageYOffset : window.scrollY;
+			if (y > threshold) {
+				btn.classList.add('is-visible');
+			} else {
+				btn.classList.remove('is-visible');
+			}
+		}
+		window.addEventListener('scroll', updateVisible, { passive: true });
+		window.addEventListener('resize', updateVisible, { passive: true });
+		updateVisible();
+		btn.addEventListener('click', function () {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
 	}
-	if (e.target.closest('.menu-item-has-children')) {
-		e.preventDefault();
-		const hasChildren = e.target.closest('.menu-item-has-children');
-		showSubMenu(hasChildren);
-	}
-});
-
-menuArrow.addEventListener('click', () => {
-	hideSubMenu();
-});
-
-menuToggle.addEventListener('click', () => {
-	toggleMenu();
-});
-
-menuClosed.addEventListener('click', () => {
-	toggleMenu();
-});
-
-menuOverlay.addEventListener('click', () => {
-	toggleMenu();
-});
-
-// Show & Hide Toggle Menu Function
-function toggleMenu() {
-	menu.classList.toggle('active');
-	menuOverlay.classList.toggle('active');
-	// When closing the menu, collapse any open submenu and reset arrow
-	if (!menu.classList.contains('active')) {
-		menu.querySelectorAll('.menu-subs.active').forEach(el => el.classList.remove('active'));
-		menu.querySelectorAll('.menu-item-has-children.submenu-open').forEach(el => el.classList.remove('submenu-open'));
-	}
-}
-
-// Show/hide the Mobile Submenu (inline dropdown - no secondary header)
-function showSubMenu(hasChildren) {
-	subMenu = hasChildren.querySelector('.menu-subs');
-	if (subMenu.classList.contains('active')) {
-		subMenu.classList.remove('active');
-		hasChildren.classList.remove('submenu-open');
-	} else {
-		subMenu.classList.add('active');
-		hasChildren.classList.add('submenu-open');
-	}
-}
-
-// Hide the Mobile Side Menu Function (for back arrow if used)
-function hideSubMenu() {
-	if (subMenu) {
-		subMenu.classList.remove('active');
-		const parent = subMenu.closest('.menu-item-has-children');
-		if (parent) parent.classList.remove('submenu-open');
-	}
-	menu.querySelector('.menu-mobile-title').innerHTML = '';
-	menu.querySelector('.menu-mobile-header').classList.remove('active');
-}
-
-// Windows Screen Resizes Function
-window.onresize = function () {
-	if (this.innerWidth > 991) {
-		if (menu.classList.contains('active')) {
-			toggleMenu();
+	function run(retries) {
+		retries = retries || 0;
+		var btn = document.getElementById('scrollToTopBtn');
+		if (btn) {
+			setup(btn);
+		} else if (retries < 40) {
+			setTimeout(function () { run(retries + 1); }, 50);
 		}
 	}
-};
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', run);
+	} else {
+		run();
+	}
+})();
+
+var menu = document.querySelector('.menu');
+var menuSection = menu && menu.querySelector('.menu-section');
+var menuArrow = menu && menu.querySelector('.menu-mobile-arrow');
+var menuClosed = menu && menu.querySelector('.menu-mobile-close');
+var menuToggle = document.querySelector('.menu-mobile-toggle');
+var menuOverlay = document.querySelector('.overlay');
+var subMenu;
+
+if (menu && menuSection && menuArrow && menuClosed && menuToggle && menuOverlay) {
+	menuSection.addEventListener('click', (e) => {
+		if (!menu.classList.contains('active')) {
+			return;
+		}
+		if (e.target.closest('.menu-item-has-children')) {
+			e.preventDefault();
+			var hasChildren = e.target.closest('.menu-item-has-children');
+			showSubMenu(hasChildren);
+		}
+	});
+
+	menuArrow.addEventListener('click', () => {
+		hideSubMenu();
+	});
+
+	menuToggle.addEventListener('click', () => {
+		toggleMenu();
+	});
+
+	menuClosed.addEventListener('click', () => {
+		toggleMenu();
+	});
+
+	menuOverlay.addEventListener('click', () => {
+		toggleMenu();
+	});
+
+	function toggleMenu() {
+		menu.classList.toggle('active');
+		menuOverlay.classList.toggle('active');
+		if (!menu.classList.contains('active')) {
+			menu.querySelectorAll('.menu-subs.active').forEach(el => el.classList.remove('active'));
+			menu.querySelectorAll('.menu-item-has-children.submenu-open').forEach(el => el.classList.remove('submenu-open'));
+		}
+	}
+
+	function showSubMenu(hasChildren) {
+		subMenu = hasChildren.querySelector('.menu-subs');
+		if (subMenu.classList.contains('active')) {
+			subMenu.classList.remove('active');
+			hasChildren.classList.remove('submenu-open');
+		} else {
+			subMenu.classList.add('active');
+			hasChildren.classList.add('submenu-open');
+		}
+	}
+
+	function hideSubMenu() {
+		if (subMenu) {
+			subMenu.classList.remove('active');
+			var parent = subMenu.closest('.menu-item-has-children');
+			if (parent) parent.classList.remove('submenu-open');
+		}
+		var titleEl = menu.querySelector('.menu-mobile-title');
+		var headerEl = menu.querySelector('.menu-mobile-header');
+		if (titleEl) titleEl.innerHTML = '';
+		if (headerEl) headerEl.classList.remove('active');
+	}
+
+	window.onresize = function () {
+		if (this.innerWidth > 991) {
+			if (menu.classList.contains('active')) {
+				toggleMenu();
+			}
+		}
+	};
+}
 
 
 jQuery(document).ready(function(){
@@ -289,6 +325,6 @@ function decreaseCount(a, b) {
 
 
     window.onload = function(){
-        //hide the preloader
-        document.querySelector(".preloader").style.display = "none";
-    }	
+        var preloader = document.querySelector(".preloader");
+        if (preloader) preloader.style.display = "none";
+    }

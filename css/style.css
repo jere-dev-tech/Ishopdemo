@@ -71,7 +71,7 @@ img {
   image-rendering: crisp-edges;
 }
 
-/* Scroll-to-top button – minimal, subtle */
+/* Scroll-to-top button – minimal, subtle; always available when scrolled */
 .scroll-to-top {
   position: fixed;
   right: 1.75rem;
@@ -87,12 +87,13 @@ img {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transform: translateY(10px) scale(0.96);
   transition: opacity 0.3s ease, visibility 0.3s ease,
               transform 0.3s ease, box-shadow 0.3s ease,
               background-color 0.3s ease;
   cursor: pointer;
-  z-index: 900;
+  z-index: 9999;
 }
 
 .scroll-to-top i {
@@ -103,6 +104,7 @@ img {
 .scroll-to-top.is-visible {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateY(0) scale(1);
 }
 

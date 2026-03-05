@@ -621,27 +621,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   }
-
-  const scrollBtn = document.getElementById('scrollToTopBtn');
-  if (scrollBtn) {
-    const toggleScrollBtn = function () {
-      if (window.scrollY > 280) {
-        scrollBtn.classList.add('is-visible');
-      } else {
-        scrollBtn.classList.remove('is-visible');
-      }
-    };
-
-    window.addEventListener('scroll', toggleScrollBtn, { passive: true });
-    toggleScrollBtn();
-
-    scrollBtn.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
 });
 </script>
 <script>
