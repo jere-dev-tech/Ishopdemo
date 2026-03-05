@@ -128,13 +128,13 @@ img {
 
 /* Logo only in header - scope so it never affects hero/slider */
 .header .brand {
-  font-family: "Rubik", sans-serif;
-  font-size: 1.625rem;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -1px;
-  color: var(--color-yellow);
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;         /* white backing only behind the logo */
+  padding: 0;                  /* no extra margin around the logo */
+  border-radius: 4px;          /* soften edges so it doesn't look like a big box */
+  line-height: 0;              /* prevent extra line-height space */
 }
 .header .brand img {
   height: 55px;
@@ -153,7 +153,7 @@ img {
   margin: 0 auto;
   padding: 0;
   z-index: 100;
-  background: #000000;
+  background: #ffffff;
   -webkit-box-shadow: var(--shadow-medium);
           box-shadow: var(--shadow-medium);
   margin-bottom: 120px;
@@ -239,6 +239,7 @@ img {
 }
 .header-item-right .menu-icon > img {
   width: 25px;
+  filter: brightness(0); /* black cart icon to match header design */
 }
 .header .menu > ul.menu-section {
   display: -webkit-box;
@@ -630,6 +631,10 @@ ul.main_social_icon {
     opacity: 1;
     visibility: visible;
   }
+  /* Desktop header: dark text on white background */
+  .header .menu > ul > li > a {
+    color: #111111;
+  }
 }
 @media screen and (max-width: 992px) {
   .header-item-center {
@@ -680,7 +685,7 @@ ul.main_social_icon {
     outline: none;
     opacity: 1;
     border-radius: 0.25rem;
-    background: var(--color-white);
+    background: #000000;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     -webkit-transition: 0.25s ease-in-out;
@@ -753,12 +758,13 @@ ul.main_social_icon {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
+  /* Top section: white background, logo only */
   .header .menu .menu-mobile-logo {
     display: block;
     padding: 1.25rem 1rem;
     text-align: center;
-    border-bottom: 1px solid rgb(255 255 255 / 10%);
-    background: #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    background: #ffffff;
   }
   .header .menu .menu-mobile-logo a {
     display: block;
@@ -769,6 +775,7 @@ ul.main_social_icon {
     display: block;
     margin: 0 auto;
   }
+  /* Below logo: black background, light text */
   .header .menu .menu-mobile-header {
     position: relative;
     display: flex;
@@ -809,7 +816,7 @@ ul.main_social_icon {
     font-size: 1rem;
     font-weight: 500;
     line-height: inherit;
-    color: var(--color-black);
+    color: #ffffff;
     text-transform: capitalize;
   }
   .header .menu .menu-mobile-header .menu-mobile-close {
@@ -826,7 +833,14 @@ ul.main_social_icon {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-	
+    background: #000000;
+  }
+  .header .menu .menu-section a,
+  .header .menu .menu-section .menu-subs a {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  .header .menu .menu-section .menu-subs a:hover {
+    color: var(--color-yellow);
   }
 
   /* Mobile Productos: simple vertical list, hide desktop mega grid */
