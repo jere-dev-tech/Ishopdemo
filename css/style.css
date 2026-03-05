@@ -138,10 +138,15 @@ img {
 }
 .main-content-wrapper{
 	overflow:hidden;
-    width:100%;
-  
-    
+	width:100%;
+	padding-top: 80px;
+}
 
+/* Logo only in header - hide any logo inside hero/slider */
+.main-content-wrapper .carousel img[src*="logo.png"],
+.main-content-wrapper .carousel img[src*="logo"],
+.main-content-wrapper .carousel .brand {
+	display: none !important;
 }
 /*banner-wrapper start*/
 .Banner_wrapper{

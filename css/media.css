@@ -1,7 +1,7 @@
 @media only screen and (max-width:767px){
 	/* Prevent fixed header from overlapping hero on mobile */
 	.main-content-wrapper {
-		padding-top: 72px;
+		padding-top: 80px;
 	}
 
   .carousel-item > img {

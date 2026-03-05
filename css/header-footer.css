@@ -126,7 +126,8 @@ img {
   padding: 0 1.25rem;
 }
 
-.brand {
+/* Logo only in header - scope so it never affects hero/slider */
+.header .brand {
   font-family: "Rubik", sans-serif;
   font-size: 1.625rem;
   font-weight: 600;
@@ -135,27 +136,38 @@ img {
   color: var(--color-yellow);
   text-transform: uppercase;
 }
-.brand img {
+.header .brand img {
   height: 55px;
+  max-height: 56px;
   width: auto;
-  max-height: 55px;
   display: block;
+  vertical-align: middle;
 }
 
 .header {
   position: fixed;
-  display: block;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 80px;
   margin: 0 auto;
-  padding: 1.75rem 0;
+  padding: 0;
   z-index: 100;
   background: #000000;
   -webkit-box-shadow: var(--shadow-medium);
           box-shadow: var(--shadow-medium);
-		  margin-bottom:120px;
+  margin-bottom: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  box-sizing: border-box;
+}
+.header .container {
+  height: 100%;
+  width: 100%;
 }
 .header .wrapper {
   display: -webkit-box;
@@ -165,8 +177,8 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -174,35 +186,52 @@ img {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
+  height: 100%;
+  min-height: 80px;
 }
 .header-item-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 17%;
           flex: 0 0 17%;
+  flex-shrink: 0;
 }
 .header-item-center {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-height: 80px;
+  overflow: visible;
 }
 .header-item-right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 17%;
-    flex: 0 0 17%;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 17%;
+          flex: 0 0 17%;
+  flex-shrink: 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
 }
 
 .header-item-right .menu-icon {
@@ -211,10 +240,30 @@ img {
 .header-item-right .menu-icon > img {
   width: 25px;
 }
+.header .menu > ul.menu-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .header .menu > ul > li {
   display: inline-block;
-  line-height: 3.125rem;
+  line-height: 1.25;
   margin-left: 1.5rem;
+  vertical-align: middle;
+}
+.header .menu > ul > li:first-child {
+  margin-left: 0;
 }
 .header .menu > ul > li > a {
   position: relative;
@@ -339,6 +388,10 @@ img {
 }
 .header .menu-mobile-header,
 .header .menu-mobile-toggle {
+  display: none;
+}
+/* Hide mobile panel logo on desktop - only header left logo shows */
+.header .menu .menu-mobile-logo {
   display: none;
 }
 
@@ -665,6 +718,11 @@ ul.main_social_icon {
     -webkit-transform: translate(0%);
             transform: translate(0%);
   }
+  .header .menu > ul.menu-section {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
   .header .menu > ul > li {
     display: block;
     line-height: 1;
@@ -690,6 +748,7 @@ ul.main_social_icon {
             transform: rotate(-90deg);
   }
   .header .menu .menu-mobile-logo {
+    display: block;
     padding: 1.25rem 1rem;
     text-align: center;
     border-bottom: 1px solid rgb(255 255 255 / 10%);
@@ -849,9 +908,9 @@ ul.main_social_icon {
     visibility: visible;
   }
  .header {
-    padding: 0.75rem 0;
-    
-}
+    height: 80px;
+    padding: 0;
+  }
 }
 
 
