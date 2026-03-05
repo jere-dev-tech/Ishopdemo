@@ -49,11 +49,9 @@
 	<header class="header">
 		<div class="container">
 			<div class="wrapper">
-				<div class="header-item-left">
-					<a href="index.html" class="brand"><img src="images/logo.png" alt="iShop logo" /></a>
-				</div>
 				<!-- Navbar Section -->
-				<div class="header-item-center">
+				<div class="header-item-left">
+					<a href="cart.html" class="menu-icon"><img src="./images/Icon-ionic-ios-cart.png" alt="Carrito" /></a>
 					<div class="overlay"></div>
 					<nav class="menu" id="menu">
 						<div class="menu-mobile-logo">
@@ -154,9 +152,10 @@
 						</ul>
 					</nav>
 				</div>
-
+				<div class="header-item-center">
+					<a href="index.html" class="brand"><img src="images/logo.png" alt="iShop logo" /></a>
+				</div>
 				<div class="header-item-right">
-					<a href="cart.html" class="menu-icon"><img src="./images/Icon-ionic-ios-cart.png" alt="Carrito" /></a>
 					<button type="button" class="menu-mobile-toggle">
 						<span></span>
 						<span></span>
@@ -637,6 +636,55 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 	}
+})();
+</script>
+<script>
+(function() {
+	var socialSection = document.getElementById('main_social_midia_icon');
+	if (!socialSection) return;
+	var items = socialSection.querySelectorAll('ul.main_social_icon li');
+	if (!items.length) return;
+	var loopInterval = null;
+	var CYCLE_MS = 2500;
+	var ICON_DURATION_MS = 550;
+
+	function runCycle() {
+		var idx = 0;
+		function next() {
+			items.forEach(function(el) { el.classList.remove('social-icon-active'); });
+			if (idx < items.length) {
+				items[idx].classList.add('social-icon-active');
+				idx++;
+				setTimeout(next, ICON_DURATION_MS);
+			}
+		}
+		next();
+	}
+
+	function startLoop() {
+		if (loopInterval) clearInterval(loopInterval);
+		runCycle();
+		loopInterval = setInterval(runCycle, CYCLE_MS);
+	}
+
+	function stopLoop() {
+		if (loopInterval) {
+			clearInterval(loopInterval);
+			loopInterval = null;
+		}
+		items.forEach(function(el) { el.classList.remove('social-icon-active'); });
+	}
+
+	var observer = new IntersectionObserver(function(entries) {
+		entries.forEach(function(entry) {
+			if (entry.isIntersecting) {
+				startLoop();
+			} else {
+				stopLoop();
+			}
+		});
+	}, { threshold: 0.25, rootMargin: '0px' });
+	observer.observe(socialSection);
 })();
 </script>
 

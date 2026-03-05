@@ -2194,11 +2194,12 @@ input.qtyminus {
 	padding-top:50px;
 	padding-bottom:50px;
 	overflow-x:hidden;
-	overflow-x:hidden;
+	background-color:#000000;
+	color:#ffffff;
 }
 .faq_inner_wrapper{
 	width:100%;
-	
+	color:#ffffff;
 }
 .faq_detail{
 	width:100%;
@@ -2207,14 +2208,16 @@ input.qtyminus {
 	font-size:18px;
 	padding-top:20px;
 	padding-bottom:20px;
+	color:#ffffff;
 }
 .faq_inner_wrapper h2{
 	padding-top:20px;
+	color:#ffffff;
 }
 .faq_accordion{
 }
 .accordion_faq {
-  color:black;
+  color:#ffffff;
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -2222,28 +2225,33 @@ input.qtyminus {
   transition: 0.4s;
   font-size:25px;
   font-weight:500;
-  	border-top:1px solid grey;
-	    padding-top: 20px;
-    padding-bottom: 20px;
-	padding-left:20px;
+  border-top:1px solid rgba(255,255,255,0.25);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left:20px;
 }
 
 .accordion_faq:after {
   content: '\002B';
-  color: black;
+  color: #ffffff;
   font-weight: bold;
   float: right;
   margin-left: 5px;
 }
-.active:after {
+.faq_accordion .accordion_faq.active:after {
   content: "\2212";
-  color:black;
+  color:#ffffff;
 }
 .faq_accordion .panel {
-  background-color: white;
+  background-color: rgba(255,255,255,0.06);
+  color:#ffffff;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+.faq_accordion .panel p {
+  color:#ffffff;
+  padding: 1rem 20px;
 }
 
 /*FAQ inner page end*/
