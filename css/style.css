@@ -238,7 +238,7 @@ img {
     float: right;
 }
 .phone_product_column_one .phone_info_inner > a , .headphones_product_info .headphones_info_inner > a{
-  background: var(--color-light-white);
+  background: transparent;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--color-yellow);
@@ -250,9 +250,37 @@ img {
   transition: all 0.3s ease-in-out;
   position: relative;
 }
+
+/* Global style for primary CTA buttons (including "Comprar ahora") */
+.dt-sc-btn.corner-button {
+  background: transparent;
+  border: 2px solid #f5a623;      /* yellow accent */
+  color: #f5a623;
+  padding: 12px 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.dt-sc-btn.corner-button:hover {
+  background: #000;
+  color: #fff;
+  border-color: #f5a623;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
 .corner-button span {
 	position: relative;
 	z-index: 2;
+}
+
+/* Disable decorative corner backgrounds for this CTA so no white block appears */
+.dt-sc-btn.corner-button::before,
+.dt-sc-btn.corner-button::after {
+  content: none !important;
+  background: transparent !important;
 }
 .corner-button::after, .corner-button::before {
 	content: "";

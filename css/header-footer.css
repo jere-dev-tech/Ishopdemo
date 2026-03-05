@@ -746,6 +746,12 @@ ul.main_social_icon {
     text-align: center;
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+  }
+  .header .menu > ul > li.menu-item-has-children.submenu-open > a i.ion {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   .header .menu .menu-mobile-logo {
     display: block;
@@ -822,73 +828,291 @@ ul.main_social_icon {
     overflow-x: hidden;
 	
   }
-  .header .menu > ul > li .menu-subs {
-    position: absolute;
+
+  /* Mobile Productos: simple vertical list, hide desktop mega grid */
+  .header .menu .menu-productos-list-mobile {
     display: none;
-    top: 0;
-    left: 0;
+  }
+  /* Mobile Categorías: simple vertical list, hide desktop mega grid */
+  .header .menu .menu-categorias-mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header .menu .menu-productos-list-mobile {
+      display: block;
+      padding: 0.5rem 1rem 0.25rem;
+    }
+    .header .menu .menu-productos-list-mobile a {
+      display: block;
+      width: 100%;
+      padding: 0.45rem 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--color-white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header .menu .menu-productos-list-mobile a:last-child {
+      border-bottom: none;
+    }
+    .header .menu > ul > li .menu-subs.menu-productos-grid {
+      display: none !important;
+    }
+    .header .menu .menu-categorias-mobile {
+      display: block;
+      padding: 0.5rem 1rem 0.25rem;
+    }
+    .header .menu .menu-categorias-mobile a {
+      display: block;
+      width: 100%;
+      padding: 0.45rem 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--color-white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header .menu .menu-categorias-mobile a:last-child {
+      border-bottom: none;
+    }
+    .header .menu > ul > li .menu-subs.menu-categorias-mega {
+      display: none !important;
+    }
+    /* Generic override: disable mega-menu grid columns on mobile */
+    .header .menu > ul > li .menu-subs.menu-column-4 {
+      display: block !important;
+      grid-template-columns: none;
+      grid-template-rows: none;
+      gap: 0;
+      padding: 0.5rem 1rem 0.75rem;
+    }
+    /* Categorías: vertical, mobile-friendly list (override desktop mega columns) */
+    .header .menu > ul > li .menu-subs.menu-categorias-mega {
+      display: block;
+      padding: 0.5rem 1rem 0.75rem;
+    }
+    .header .menu > ul > li .menu-subs.menu-categorias-mega > .list-item {
+      width: 100%;
+      margin: 0 0 0.75rem;
+      padding: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: transparent;
+    }
+    .header .menu > ul > li .menu-subs.menu-categorias-mega > .list-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0.25rem;
+    }
+    .header .menu > ul > li .menu-subs.menu-categorias-mega > .list-item .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-yellow);
+      margin: 0 0 0.25rem;
+      text-transform: none;
+    }
+    .header .menu > ul > li .menu-subs.menu-categorias-mega ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0.5rem;
+    }
+    .header .menu > ul > li .menu-subs.menu-categorias-mega ul li a {
+      display: block;
+      padding: 0.15rem 0;
+      font-size: 0.9rem;
+      color: var(--color-white);
+      text-decoration: none;
+    }
+    .header .menu > ul > li .menu-subs.menu-categorias-mega ul li a:hover {
+      color: var(--color-yellow);
+    }
+  }
+  /* Mobile: submenus open inline with slide-down animation */
+  .header .menu > ul > li .menu-subs {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
     max-width: none;
     min-width: auto;
-    width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 0;
     margin: 0;
-    padding: 1rem;
-    padding-top: 4rem;
-    opacity: 1;
-    overflow-y: auto;
+    padding: 0 1rem;
+    overflow: hidden;
     visibility: visible;
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
     -webkit-box-shadow: none;
             box-shadow: none;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 0.25rem;
+    -webkit-transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
   }
   .header .menu > ul > li .menu-subs.menu-mega {
-    position: absolute;
-    display: none;
-    top: 0;
-    left: 0;
-    max-width: none;
-    min-width: auto;
+    position: relative;
+    top: auto;
+    left: auto;
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 0;
     margin: 0;
-    padding: 1rem;
-    padding-top: 4rem;
-    opacity: 1;
-    overflow-y: auto;
-    visibility: visible;
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    padding: 0 1rem;
+    overflow: hidden;
+    -webkit-transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
   }
   .header .menu > ul > li .menu-subs.active {
+    max-height: 1200px;
+    padding: 0.75rem 0 0.75rem 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  /* Productos: 2x2 grid, all 4 categories visible, no horizontal scroll */
+  .header .menu > ul > li .menu-subs.menu-column-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 0;
+  }
+  .header .menu > ul > li .menu-subs.menu-column-4.active {
+    padding: 0.5rem;
+    max-height: 340px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  /* Productos on mobile: simple vertical list (override desktop mega-menu grid) */
+  .header .menu > ul > li .menu-subs.menu-productos-grid {
     display: block;
+    padding: 0.25rem 0;
+  }
+  .header .menu > ul > li .menu-subs.menu-productos-grid.active {
+    max-height: 320px;
+    min-height: 0;
+    padding: 0.5rem 0;
+    margin: 0 auto;
+  }
+  .header .menu > ul > li .menu-subs.menu-productos-grid > .list-item {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+  }
+  .header .menu > ul > li .menu-subs.menu-productos-grid > .list-item a {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--color-white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header .menu > ul > li .menu-subs.menu-productos-grid > .list-item:last-child a {
+    border-bottom: none;
+  }
+  .header .menu > ul > li .menu-subs.menu-productos-grid > .list-item img {
+    display: none;
+  }
+  .header .menu > ul > li .menu-subs.menu-productos-grid > .list-item .title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-transform: none;
+    margin: 0;
   }
   .header .menu > ul > li .menu-subs.menu-column-4 > .list-item {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-    padding: 0rem;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    padding: 0.4rem;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 0.25rem;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header .menu > ul > li .menu-subs.menu-column-4 > .list-item a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 0.25rem;
+    padding: 0;
+    color: var(--color-white);
+    text-decoration: none;
+    width: 100%;
+    min-width: 0;
   }
   .header .menu > ul > li .menu-subs.menu-column-4 > .list-item img {
-    margin-top: 0;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    margin: 0 auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 0.25rem;
+    display: block;
   }
   .header .menu > ul > li .menu-subs.menu-column-4 > .list-item.text-center .title {
-    margin-bottom: 1.25rem;
+    font-size: 0.6875rem;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 500;
+    color: var(--color-white);
+    text-align: center;
+    word-break: break-word;
   }
   .header .menu > ul > li .menu-subs.menu-column-4 > .list-item.text-center:last-child .title {
-    margin-bottom: 0rem;
+    margin-bottom: 0;
   }
   .header .menu > ul > li .menu-subs > ul > li > a {
     display: block;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.9);
   }
   .header .menu > ul > li .menu-subs.menu-mega > .list-item > ul {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   .header .menu > ul > li .menu-subs.menu-mega > .list-item > ul > li > a {
     display: block;
   }
+  /* Categorías dropdown: simple list, no grid */
+  .header .menu > ul > li .menu-subs.menu-mega > .list-item:not(.text-center) .title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-yellow);
+    margin-bottom: 0.25rem;
+    padding-top: 0.5rem;
+  }
+  .header .menu > ul > li .menu-subs.menu-mega > .list-item:not(.text-center):first-child .title {
+    padding-top: 0;
+  }
+  /* Keep Productos as 2x2 grid on all mobile screens (no 3/4 column) */
 
   .overlay {
     position: fixed;

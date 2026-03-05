@@ -51,6 +51,22 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    background-image: url('./../images/iphone_15.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.phone_product_wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
 }
 
 .phone_product_column_one .phone_info_inner {
@@ -64,6 +80,16 @@ html {
 
 .phone_product_images_wrapper{
     display:none;
+}
+
+/* Ensure phone product text blocks have no solid background on mobile
+   so the wrapper background image remains visible */
+.phone_product_column_one,
+.phone_product_column_two,
+.phone_product_info,
+.phone_info_inner,
+.phone_info_inner .phone_product_detail {
+    background: transparent !important;
 }
 .phone_product_info .phone_info_inner > h2, .headphones_product_info .headphones_info_inner > h2 {
     color: var(--color-yellow);
@@ -108,10 +134,28 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    background-image: url('./../images/studio3-skyline-shadowgrey.png.large_.1x.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.headphones_product_wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
 }
 .phone_product_inner_wrapper, .headphones_product_inner_wrapper {
     width: 100%;
     display: block;
+    position: relative;
+    z-index: 1;
 }
 .headphones_product_column_one {
     width: 100%;
