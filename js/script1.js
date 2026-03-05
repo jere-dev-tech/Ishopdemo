@@ -20,7 +20,7 @@ let direction = -1;
 
 let jump = 1;
 
-let interval = 5000;
+let interval = 8000;
 
 let time;
 

@@ -135,6 +135,12 @@ img {
   color: var(--color-yellow);
   text-transform: uppercase;
 }
+.brand img {
+  height: 55px;
+  width: auto;
+  max-height: 55px;
+  display: block;
+}
 
 .header {
   position: fixed;
@@ -146,7 +152,7 @@ img {
   margin: 0 auto;
   padding: 1.75rem 0;
   z-index: 100;
-  background: var(--color-darken);
+  background: #000000;
   -webkit-box-shadow: var(--shadow-medium);
           box-shadow: var(--shadow-medium);
 		  margin-bottom:120px;
@@ -235,7 +241,7 @@ img {
   visibility: hidden;
   border-radius: 0.25rem;
   border-top: 3px solid var(--color-yellow);
-  background: var(--color-darken);
+  background: #000000;
   -webkit-box-shadow: var(--shadow-medium);
           box-shadow: var(--shadow-medium);
   -webkit-transition: all 0.5s ease;
@@ -649,7 +655,7 @@ ul.main_social_icon {
     height: 100%;
     z-index: 111;
     overflow: hidden;
-    background: var(--color-darken);
+    background: #000000;
     -webkit-transform: translate(-100%);
             transform: translate(-100%);
     -webkit-transition: all 0.5s ease-in-out;
@@ -683,6 +689,21 @@ ul.main_social_icon {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
   }
+  .header .menu .menu-mobile-logo {
+    padding: 1.25rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+    background: #000000;
+  }
+  .header .menu .menu-mobile-logo a {
+    display: block;
+  }
+  .header .menu .menu-mobile-logo img {
+    height: 55px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
   .header .menu .menu-mobile-header {
     position: relative;
     display: flex;
@@ -696,7 +717,7 @@ ul.main_social_icon {
     height: 3.125rem;
     z-index: 110;
     border-bottom: 1px solid rgb(255 255 255 / 10%);
-    background: var(--color-darken);
+    background: #000000;
     color: white;
     font-size: 20px;
     font-weight: 600;
