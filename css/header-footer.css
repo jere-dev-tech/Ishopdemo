@@ -131,10 +131,9 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;         /* white backing only behind the logo */
-  padding: 0;                  /* no extra margin around the logo */
-  border-radius: 4px;          /* soften edges so it doesn't look like a big box */
-  line-height: 0;              /* prevent extra line-height space */
+  background: transparent;
+  padding: 0;
+  line-height: 0;
 }
 .header .brand img {
   height: 55px;
@@ -589,9 +588,8 @@ ul.main_social_icon {
 
 .footer_logo a {
 	display: inline-block;
-	background: #ffffff;
-	padding: 8px 12px;
-	border-radius: 4px;
+	background: transparent;
+	padding: 0;
 	line-height: 0;
 	margin-bottom: 30px;
 }

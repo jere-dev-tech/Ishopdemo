@@ -124,12 +124,12 @@ img {
   }
 }
 
-/* Intro overlay - minimalist Apple-inspired */
+/* Intro overlay - minimalist Apple-style, matches reference */
 .intro-screen {
   position: fixed;
   inset: 0;
   z-index: 1100;
-  background: #000;
+  background: #000000;
   color: #fff;
   display: flex;
   align-items: center;
@@ -154,53 +154,74 @@ html.intro-skipped .intro-screen {
 }
 
 .intro-content {
-  max-width: 640px;
+  max-width: 90vw;
+  width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  gap: 2.5rem;
 }
 
-.intro-logo-mark {
-  margin-bottom: 2rem;
+/* Presentation image - main visual, centered */
+.intro-presentation-image {
   line-height: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
 }
-.intro-logo-mark img {
+.intro-presentation-image img {
   display: block;
-  width: auto;
-  max-width: 160px;
+  width: 100%;
+  max-width: 520px;
   height: auto;
-  max-height: 56px;
   margin: 0 auto;
   object-fit: contain;
-  background: #ffffff;              /* fondo blanco limpio detrás del logo */
-  padding: 6px 10px;                /* ajustado para que siga el contorno del logo */
-  border-radius: 4px;               /* esquinas suaves, minimalistas */
-}
-@media (max-width: 600px) {
-  .intro-logo-mark img {
-    max-width: 140px;
-    max-height: 48px;
-  }
+  background: transparent;
 }
 
-.intro-title {
-  font-size: 2.4rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  margin-bottom: 1rem;
-}
-
-.intro-subtitle {
+/* INGRESAR button - centered below image */
+.intro-enter-btn {
+  margin-top: 0;
+  min-width: 200px;
+  padding: 16px 40px !important;
   font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.72);
-  margin-bottom: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  border-radius: 999px;
+  background: transparent !important;
+  border: 2px solid rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+.intro-enter-btn:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+.intro-enter-btn::before,
+.intro-enter-btn::after {
+  content: none !important;
+  display: none !important;
 }
 
 @media (max-width: 600px) {
-  .intro-title {
-    font-size: 1.8rem;
+  .intro-content {
+    gap: 2rem;
+    padding: 1.5rem 1rem;
   }
-  .intro-subtitle {
-    font-size: 0.95rem;
+  .intro-presentation-image img {
+    max-width: 100%;
+  }
+  .intro-enter-btn {
+    min-width: 180px;
+    padding: 14px 32px !important;
+    font-size: 0.9375rem;
   }
 }
 
