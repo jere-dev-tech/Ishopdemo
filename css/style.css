@@ -199,6 +199,9 @@ html.intro-skipped .intro-screen {
   transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
   flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .intro-enter-btn:hover {
   background: #ffffff !important;
@@ -208,6 +211,25 @@ html.intro-skipped .intro-screen {
 }
 .intro-enter-btn:active {
   transform: scale(0.99);
+}
+@keyframes intro-dot-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.intro-enter-btn-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e53935;
+  margin-right: 10px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  animation: intro-dot-pulse 1s ease-in-out infinite;
+}
+.intro-enter-btn:hover .intro-enter-btn-dot {
+  background: #c62828;
 }
 .intro-enter-btn::before,
 .intro-enter-btn::after {
