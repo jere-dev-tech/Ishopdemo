@@ -19,6 +19,8 @@
 	(function() {
 		if (sessionStorage.getItem('ishopIntroSeen')) {
 			document.documentElement.classList.add('intro-skipped');
+		} else {
+			document.documentElement.classList.add('intro-active');
 		}
 	})();
 	</script>
@@ -611,10 +613,12 @@ document.addEventListener('DOMContentLoaded', function () {
   if (intro && enterBtn) {
     if (sessionStorage.getItem('ishopIntroSeen')) {
       intro.classList.add('intro-screen--hidden');
+      document.documentElement.classList.remove('intro-active');
     } else {
       enterBtn.addEventListener('click', function () {
         sessionStorage.setItem('ishopIntroSeen', '1');
         intro.classList.add('intro-screen--hidden');
+        document.documentElement.classList.remove('intro-active');
       });
     }
   }

@@ -124,6 +124,13 @@ img {
   }
 }
 
+/* Lock scroll while intro/presentation screen is visible */
+html.intro-active,
+html.intro-active body {
+  overflow: hidden;
+  height: 100%;
+}
+
 /* Intro overlay - minimalist Apple-style, matches reference */
 .intro-screen {
   position: fixed;
