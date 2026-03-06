@@ -19,8 +19,6 @@
 	(function() {
 		if (sessionStorage.getItem('ishopIntroSeen')) {
 			document.documentElement.classList.add('intro-skipped');
-		} else {
-			document.documentElement.classList.add('intro-active');
 		}
 	})();
 	</script>
@@ -35,7 +33,6 @@
 			<img src="images/bakgroundishoppresentation.jpeg" alt="iShop presentation" />
 		</div>
 		<button type="button" class="dt-sc-btn corner-button intro-enter-btn" id="intro-enter-btn">
-			<span class="intro-enter-btn-dot"></span>
 			<span>INGRESAR</span>
 		</button>
 	</div>
@@ -614,12 +611,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (intro && enterBtn) {
     if (sessionStorage.getItem('ishopIntroSeen')) {
       intro.classList.add('intro-screen--hidden');
-      document.documentElement.classList.remove('intro-active');
     } else {
       enterBtn.addEventListener('click', function () {
         sessionStorage.setItem('ishopIntroSeen', '1');
         intro.classList.add('intro-screen--hidden');
-        document.documentElement.classList.remove('intro-active');
       });
     }
   }

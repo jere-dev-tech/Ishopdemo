@@ -124,13 +124,6 @@ img {
   }
 }
 
-/* Lock scroll while intro is visible */
-html.intro-active,
-html.intro-active body {
-  overflow: hidden;
-  height: 100%;
-}
-
 /* Intro overlay - minimalist Apple-style, matches reference */
 .intro-screen {
   position: fixed;
@@ -218,25 +211,6 @@ html.intro-skipped .intro-screen {
 }
 .intro-enter-btn:active {
   transform: scale(0.99);
-}
-@keyframes intro-dot-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
-.intro-enter-btn-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #e53935;
-  margin-right: 10px;
-  vertical-align: middle;
-  flex-shrink: 0;
-  animation: intro-dot-pulse 1s ease-in-out infinite;
-}
-.intro-enter-btn:hover .intro-enter-btn-dot {
-  background: #c62828;
 }
 .intro-enter-btn::before,
 .intro-enter-btn::after {
