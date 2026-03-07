@@ -38,12 +38,12 @@
 var menu = document.querySelector('.menu');
 var menuSection = menu && menu.querySelector('.menu-section');
 var menuArrow = menu && menu.querySelector('.menu-mobile-arrow');
-var menuClosed = menu && menu.querySelector('.menu-mobile-close');
+var menuClose = menu && menu.querySelector('.menu-mobile-close');
 var menuToggle = document.querySelector('.menu-mobile-toggle');
 var menuOverlay = document.querySelector('.overlay');
 var subMenu;
 
-if (menu && menuSection && menuArrow && menuClosed && menuToggle && menuOverlay) {
+if (menu && menuSection && menuArrow && menuToggle && menuOverlay) {
 	menuSection.addEventListener('click', (e) => {
 		if (!menu.classList.contains('active')) {
 			return;
@@ -63,17 +63,22 @@ if (menu && menuSection && menuArrow && menuClosed && menuToggle && menuOverlay)
 		toggleMenu();
 	});
 
-	menuClosed.addEventListener('click', () => {
-		toggleMenu();
-	});
-
 	menuOverlay.addEventListener('click', () => {
 		toggleMenu();
 	});
 
+	if (menuClose) {
+		menuClose.addEventListener('click', () => {
+			toggleMenu();
+		});
+	}
+
 	function toggleMenu() {
 		menu.classList.toggle('active');
 		menuOverlay.classList.toggle('active');
+		if (menuToggle && menuToggle.classList.contains('menu__icon')) {
+			menuToggle.classList.toggle('icon-open', menu.classList.contains('active'));
+		}
 		if (!menu.classList.contains('active')) {
 			menu.querySelectorAll('.menu-subs.active').forEach(el => el.classList.remove('active'));
 			menu.querySelectorAll('.menu-item-has-children.submenu-open').forEach(el => el.classList.remove('submenu-open'));
