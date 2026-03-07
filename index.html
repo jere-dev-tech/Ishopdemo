@@ -618,9 +618,13 @@ document.addEventListener('DOMContentLoaded', function () {
       document.documentElement.classList.remove('intro-active');
     } else {
       enterBtn.addEventListener('click', function () {
-        sessionStorage.setItem('ishopIntroSeen', '1');
-        intro.classList.add('intro-screen--hidden');
-        document.documentElement.classList.remove('intro-active');
+        enterBtn.classList.add('intro-btn-pressed');
+        setTimeout(function () {
+          enterBtn.classList.remove('intro-btn-pressed');
+          sessionStorage.setItem('ishopIntroSeen', '1');
+          intro.classList.add('intro-screen--hidden');
+          document.documentElement.classList.remove('intro-active');
+        }, 280);
       });
     }
   }

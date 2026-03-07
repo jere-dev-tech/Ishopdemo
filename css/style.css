@@ -237,6 +237,25 @@ html.intro-skipped .intro-screen {
   cursor: pointer;
   box-shadow: 2px 2px 3px #000000b4;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intro-screen .intro-gradient-wrap .button:active {
+  transform: scale(0.92);
+  background-color: #1a1a1a;
+  box-shadow: 1px 1px 2px #000000b4;
+}
+
+/* Click feedback animation - plays when button is pressed */
+@keyframes intro-btn-click {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.9); }
+  70%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.intro-screen .intro-gradient-wrap .button.intro-btn-pressed {
+  animation: intro-btn-click 0.28s ease-out;
 }
 
 @media (max-width: 600px) {
