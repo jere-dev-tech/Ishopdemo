@@ -11,6 +11,12 @@
   --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Joystick (PS5 banner): edit these to change position, size and rotation */
+  --joystick-right: 2%;     /* horizontal: smaller = more to the right */
+  --joystick-top: 12%;      /* vertical: smaller = higher */
+  --joystick-size: 220px;   /* width of the joystick image */
+  --joystick-rotate: 25deg; /* tilt angle (e.g. -8deg, 5deg) */
 }
 
 *,
@@ -1131,6 +1137,90 @@ html.intro-skipped .intro-screen {
   align-items: center;
   justify-content: center;
 }
+.banner-slide{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+.banner-bg,
+.banner-slide video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.banner-overlay{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.product-float{
+  position:absolute;
+  right:8%;
+  top:30%;
+  width:220px;
+  max-width:22vw;
+  height:auto;
+  z-index:2;
+  left:auto;
+  animation:floatProduct 4s ease-in-out infinite;
+}
+/* Joystick: right with !important so it wins over .product-float and media overrides */
+.product-float.joystick{
+  position: absolute;
+  right: 1% !important;
+  top: 5%;
+  width: 220px;
+  max-width: 22vw;
+  left: auto !important;
+  /* Rotation: edit --joystick-rotate in :root above */
+  transform: rotate(var(--joystick-rotate));
+  opacity: 0;
+}
+.carousel-item.three_carousel_item.active .product-float.joystick{
+  animation:
+    joystickEntrance 0.6s ease-out forwards,
+    floatProduct 4s ease-in-out infinite 0.6s;
+}
+@keyframes joystickEntrance{
+  0%{
+    transform: translateX(80px) rotate(var(--joystick-rotate));
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0px) rotate(var(--joystick-rotate));
+    opacity: 1;
+  }
+}
+@keyframes floatProduct{
+  0%{
+    transform: translateY(0px) rotate(var(--joystick-rotate));
+  }
+  50%{
+    transform: translateY(-10px) rotate(var(--joystick-rotate));
+  }
+  100%{
+    transform: translateY(0px) rotate(var(--joystick-rotate));
+  }
+}
+
+/* Floating phone (PS5 banner only): position/size/rotation independent of joystick */
+.product-float.phone{
+  position: absolute;
+  right: 35%;
+  top: 40%;
+  width: 200px;
+  max-width: 20vw;
+  z-index: 2;
+  transform: rotate(-6deg);
+  animation: floatProductPhone 4s ease-in-out infinite;
+}
+@keyframes floatProductPhone{
+  0%{ transform: translateY(0) rotate(-6deg); }
+  50%{ transform: translateY(-10px) rotate(-6deg); }
+  100%{ transform: translateY(0) rotate(-6deg); }
+}
+
 .carousel-item h1{
   opacity: .5;
 }

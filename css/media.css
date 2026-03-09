@@ -42,6 +42,18 @@ html {
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+.banner-slide .banner-bg,
+.banner-slide video {
+  object-fit: cover;
+}
+.product-float.joystick{
+  right: 1% !important;
+  top: 6%;
+  width: 150px;
+  max-width: 30vw;
+  left: auto !important;
+}
 /*phone-product-wrapper start*/
 
 .phone_product_column_one{
