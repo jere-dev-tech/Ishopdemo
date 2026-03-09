@@ -338,7 +338,8 @@ html.intro-skipped .intro-screen {
   text-transform: uppercase;
 }
 .main-content-wrapper{
-	overflow:hidden;
+	overflow-x: visible;
+	overflow-y: hidden;
 	width:100%;
 	padding-top: 80px;
 }
@@ -1055,17 +1056,28 @@ html.intro-skipped .intro-screen {
   filter: grayscale(100%);
 }
 
+/* Hero carousel: full viewport width on all breakpoints (breaks out of any container) */
 .carousel {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
     height: auto;
     min-height: 40vmin;
-    width: 100vw;
-    max-width: 100%;
     overflow-x: hidden;
-    position: relative;
     display: flex;
     justify-content: flex-start;
     cursor: grab;
     user-select: none;
+}
+.carousel,
+.carousel-inner,
+.carousel-item {
+    margin: 0;
+    padding: 0;
 }
 .carousel.is-dragging {
     cursor: grabbing;
@@ -1079,8 +1091,18 @@ html.intro-skipped .intro-screen {
     pointer-events: auto;
 }
 .carousel .carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
     -webkit-user-drag: none;
     user-drag: none;
+    object-fit: unset;
+}
+.carousel .carousel-item-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 .carousel.is-dragging .carousel-inner,
 .carousel.is-dragging .carousel-item,
@@ -1184,9 +1206,12 @@ html.intro-skipped .intro-screen {
   background-size: cover;
 }
 
-.carousel-item  > img{
+.carousel-item img {
     width: 100%;
+    height: auto;
+    display: block;
     position: relative;
+    object-fit: unset;
 } 
 .one_carousel_item > h1{
   position: absolute;
@@ -1212,6 +1237,12 @@ html.intro-skipped .intro-screen {
   position: absolute;
 }
 
+/* Desktop: raise carousel dots so they sit inside the banner */
+@media (min-width: 992px) {
+  .carousel-indicators {
+    bottom: 100px;
+  }
+}
 
   /* Quantity Css */
 .counter {

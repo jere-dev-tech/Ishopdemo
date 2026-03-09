@@ -741,7 +741,13 @@ ul.main_social_icon {
     color: #111111;
   }
 
-  /* Desktop header: [ Logo ] [ Nav ] [ Cart ] three-column Flexbox */
+  /* Desktop header: full width; logo and cart at far edges, nav centered */
+  .header .container {
+    max-width: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
   .header .wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -749,39 +755,20 @@ ul.main_social_icon {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .header-item-left {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 0%;
-            flex: 1 1 0%;
-    min-width: 0;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    width: 100%;
+    position: relative;
   }
+  /* Logo: far left edge (absolute so it escapes container) */
   .header-item-center {
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 0%;
-            flex: 1 1 0%;
-    min-width: 0;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -789,17 +776,32 @@ ul.main_social_icon {
         -ms-flex-align: center;
             align-items: center;
   }
+  /* Nav: perfectly centered in header (absolute, centered relative to full width) */
+  .header-item-left {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  /* Cart: far right edge (absolute) */
   .header-item-cart {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 0%;
-            flex: 1 1 0%;
-    min-width: 0;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1248,6 +1250,11 @@ ul.main_social_icon {
       grid-template-rows: none;
       gap: 0;
       padding: 0.5rem 1rem 0.75rem;
+    }
+    /* Mobile: always hide product/category grids; only show simple list containers */
+    .header .menu > ul > li .menu-subs.menu-productos-grid,
+    .header .menu > ul > li .menu-subs.menu-categorias-mega {
+      display: none !important;
     }
     /* Categorías: vertical, mobile-friendly list (override desktop mega columns) */
     .header .menu > ul > li .menu-subs.menu-categorias-mega {

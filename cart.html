@@ -29,7 +29,6 @@
 			<div class="wrapper">
 				<!-- Navbar Section -->
 				<div class="header-item-left">
-					<a href="cart.html" class="menu-icon"><img src="./images/Icon-ionic-ios-cart.png" alt="Carrito" /></a>
 					<div class="overlay"></div>
 					<nav class="menu" id="menu">
 						<div class="menu-mobile-logo">
@@ -43,7 +42,15 @@
 							<li class="menu-item"><a href="index.html">Inicio</a></li>
 							<li class="menu-item-has-children">
 								<a href="#">Productos <i class="ion ion-ios-arrow-down"></i></a>
-								<div class="menu-subs menu-mega menu-column-4">
+								<!-- Mobile simple list -->
+								<div class="menu-subs menu-productos-list-mobile">
+									<a href="product-list.html">iPhones</a>
+									<a href="product-list.html">Consolas</a>
+									<a href="product-list.html">Auriculares</a>
+									<a href="product-list.html">Smartwatch</a>
+								</div>
+								<!-- Desktop mega menu grid -->
+								<div class="menu-subs menu-mega menu-column-4 menu-productos-grid">
 									<div class="list-item text-center one">
 										<a href="product.html">
 											<img src="./images/iphone_15.jpg" alt="iPhone 15 Pro">
@@ -72,7 +79,16 @@
 							</li>
 							<li class="menu-item-has-children">
 								<a href="#">Categorías <i class="ion ion-ios-arrow-down"></i></a>
-								<div class="menu-subs menu-mega menu-column-4">
+								<!-- Mobile simple list for Categorías -->
+								<div class="menu-subs menu-categorias-mobile">
+									<a href="product-list.html">Celulares</a>
+									<a href="product-list.html">Juegos</a>
+									<a href="product-list.html">Audio</a>
+									<a href="product-list.html">Cámaras</a>
+									<a href="product-list.html">Relojes inteligentes</a>
+								</div>
+								<!-- Desktop mega menu for Categorías -->
+								<div class="menu-subs menu-mega menu-column-4 menu-categorias-mega">
 									<div class="list-item">
 										<h4 class="title">Celulares</h4>
 										<ul>
@@ -114,6 +130,9 @@
 				</div>
 				<div class="header-item-center">
 					<a href="index.html" class="brand"><img src="images/logo.png" alt="iShop logo" /></a>
+				</div>
+				<div class="header-item-cart">
+					<a href="cart.html" class="menu-icon"><img src="./images/Icon-ionic-ios-cart.png" alt="Carrito" /></a>
 				</div>
 				<div class="header-item-right">
 					<button type="button" class="menu-mobile-toggle menu__icon" aria-label="Abrir menú">

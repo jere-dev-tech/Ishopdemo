@@ -20,7 +20,7 @@ let direction = -1;
 
 let jump = 1;
 
-let interval = 8000;
+let interval = 5000;
 
 let time;
 
@@ -34,7 +34,8 @@ const dragThreshold = 5;
 //Init carousel
 carouselInner.style.minWidth = (totalSlides * 100) + '%';
 loadIndicators();
-loop(true);
+// Start autoplay after 8s so the video banner can play first
+setTimeout(function() { loop(true); }, 8000);
 
 
 //Carousel events
