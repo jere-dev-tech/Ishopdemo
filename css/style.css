@@ -17,6 +17,55 @@
   --joystick-top: 12%;      /* vertical: smaller = higher */
   --joystick-size: 220px;   /* width of the joystick image */
   --joystick-rotate: 25deg; /* tilt angle (e.g. -8deg, 5deg) */
+
+  /* PS5 banner overlay: logo and controller – edit to reposition independently */
+  --ps5-logo-top: 1%;
+  --ps5-logo-right: 32%;
+  --ps5-logo-size: 520px;
+
+  --ps5-controller-top: 65%;
+  --ps5-controller-right: 37%;
+  --ps5-controller-size: 280px;
+
+  /* PS5 banner mobile (max-width: 768px) – edit to adjust position/size on small screens */
+  --ps5-logo-mobile-top: -15%;
+  --ps5-logo-mobile-right: 18%;
+  --ps5-logo-mobile-size: 190px;
+
+  --ps5-controller-mobile-top: 65%;
+  --ps5-controller-mobile-right: 30%;
+  --ps5-controller-mobile-size: 80px;
+
+  /* PS5 banner: VR headset – position/size (desktop and mobile) */
+  --ps5-vr-top: 35%;
+  --ps5-vr-right: 10%;
+  --ps5-vr-size: 460px;
+
+  --ps5-vr-mobile-top: 30%;
+  --ps5-vr-mobile-right: 6%;
+  --ps5-vr-mobile-size: 100px;
+
+  /* PS5 banner: Pulse Elite headset – position/size (desktop and mobile) */
+  --ps5-pulse-top: 35%;
+  --ps5-pulse-right: 50%;
+  --ps5-pulse-size: 460px;
+
+  --ps5-pulse-mobile-top: 30%;
+  --ps5-pulse-mobile-right: 48%;
+  --ps5-pulse-mobile-size: 100px;
+
+  /* PS5 banner height – edit these to resize banner */
+  --ps5-banner-height-desktop: 820px;
+  --ps5-banner-height-mobile: 220px;
+
+  /* JBL banner logo – edit to reposition/resize */
+  --jbl-logo-top: 8%;
+  --jbl-logo-left: 12%;
+  --jbl-logo-size: 140px;
+
+  --jbl-logo-mobile-top: -9%;
+  --jbl-logo-mobile-left: 5%;
+  --jbl-logo-mobile-size: 150px;
 }
 
 *,
@@ -350,11 +399,8 @@ html.intro-skipped .intro-screen {
 	padding-top: 80px;
 }
 
-/* Logo only in header - hide any logo inside hero/slider */
-.main-content-wrapper .carousel img[src*="logo.png"],
-.main-content-wrapper .carousel img[src*="logo"],
 .main-content-wrapper .carousel .brand {
-	display: none !important;
+	display:none;
 }
 /*banner-wrapper start*/
 .Banner_wrapper{
@@ -1142,6 +1188,182 @@ html.intro-skipped .intro-screen {
   width:100%;
   height:100%;
 }
+
+/* PS5 banner: full-width hero, console on left (background), logo + controller on right */
+.ps5-banner{
+  position: relative;
+  width: 100%;
+  height: var(--ps5-banner-height-desktop);
+  overflow: hidden;
+}
+
+/* Desktop only: match 16:9 (same visual proportion as video slide) */
+@media (min-width: 769px){
+  .ps5-banner{
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .jbl-banner{
+    height: auto;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    padding-bottom: 20px; /* add a little extra bottom space to match video slide height */
+    box-sizing: border-box;
+  }
+}
+/* Banner background (PS5 console) fills the section – do not scale overlay images */
+.ps5-banner .ps5-banner-link,
+.ps5-banner .ps5-banner-link .banner-bg{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.ps5-banner .ps5-banner-link .banner-bg{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* JBL banner background fills the section */
+.jbl-banner .jbl-banner-link,
+.jbl-banner .jbl-banner-link .banner-bg{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.jbl-banner .jbl-banner-link .banner-bg{
+  width: 100% !important;
+  height: calc(100% + 20px) !important; /* extend into padding-bottom */
+  object-fit: cover !important;
+}
+
+/* JBL logo overlay */
+.jbl-overlay{
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+.jbl-banner .jbl-overlay .jbl-logo{
+  position: absolute;
+  top: var(--jbl-logo-top);
+  left: var(--jbl-logo-left);
+  width: var(--jbl-logo-size);
+  height: auto;
+  z-index: 50;
+  display: block;
+}
+/* Overlay: full banner so logo/controller use % from banner (variables in :root) */
+.ps5-overlay{
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+.ps5-banner .ps5-overlay .ps5-logo{
+  position: absolute;
+  top: var(--ps5-logo-top);
+  right: var(--ps5-logo-right);
+  width: var(--ps5-logo-size) !important;
+  max-width: 32vw;
+  height: auto !important;
+  display: block;
+}
+.ps5-banner .ps5-overlay .ps5-controller{
+  position: absolute;
+  top: var(--ps5-controller-top);
+  right: var(--ps5-controller-right);
+  width: var(--ps5-controller-size) !important;
+  max-width: 22vw;
+  height: auto !important;
+  display: block;
+  animation: joystickFloat 4.8s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+.ps5-banner .ps5-overlay .ps5-vr{
+  position: absolute;
+  top: var(--ps5-vr-top);
+  right: var(--ps5-vr-right);
+  width: var(--ps5-vr-size) !important;
+  max-width: 24vw;
+  height: auto !important;
+  display: block;
+  z-index: 50;
+  animation: vrFloat 5.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+.ps5-banner .ps5-overlay .ps5-pulseelite{
+  position: absolute;
+  top: var(--ps5-pulse-top);
+  right: var(--ps5-pulse-right);
+  width: var(--ps5-pulse-size) !important;
+  max-width: 24vw;
+  height: auto !important;
+  display: block;
+  z-index: 50;
+  animation: pulseFloat 6.2s ease-in-out infinite;
+  animation-delay: 1.6s;
+}
+
+@keyframes pulseFloat{
+  0%{ transform: translateY(0px); }
+  50%{ transform: translateY(-10px); }
+  100%{ transform: translateY(0px); }
+}
+
+@keyframes vrFloat{
+  0%{ transform: translateY(0px); }
+  50%{ transform: translateY(-14px); }
+  100%{ transform: translateY(0px); }
+}
+
+@keyframes joystickFloat{
+  0%{ transform: translateY(0px); }
+  50%{ transform: translateY(-12px); }
+  100%{ transform: translateY(0px); }
+}
+
+/* PS5 banner: mobile – use :root variables (--ps5-*-mobile-*) to adjust position/size */
+@media (max-width: 768px){
+  .ps5-banner{
+    height: var(--ps5-banner-height-mobile);
+  }
+  .ps5-banner .ps5-overlay .ps5-logo{
+    top: var(--ps5-logo-mobile-top);
+    right: var(--ps5-logo-mobile-right);
+    width: var(--ps5-logo-mobile-size) !important;
+    max-width: 50vw;
+    height: auto !important;
+  }
+  .ps5-banner .ps5-overlay .ps5-controller{
+    top: var(--ps5-controller-mobile-top);
+    right: var(--ps5-controller-mobile-right);
+    width: var(--ps5-controller-mobile-size) !important;
+    max-width: 45vw;
+    height: auto !important;
+  }
+  .ps5-banner .ps5-overlay .ps5-vr{
+    top: var(--ps5-vr-mobile-top);
+    right: var(--ps5-vr-mobile-right);
+    width: var(--ps5-vr-mobile-size) !important;
+    max-width: 40vw;
+  }
+  .ps5-banner .ps5-overlay .ps5-pulseelite{
+    top: var(--ps5-pulse-mobile-top);
+    right: var(--ps5-pulse-mobile-right);
+    width: var(--ps5-pulse-mobile-size) !important;
+    max-width: 40vw;
+  }
+
+  .jbl-banner .jbl-overlay .jbl-logo{
+    top: var(--jbl-logo-mobile-top);
+    left: var(--jbl-logo-mobile-left);
+    width: var(--jbl-logo-mobile-size) !important;
+  }
+}
+
 .banner-bg,
 .banner-slide video{
   width:100%;
@@ -1150,10 +1372,16 @@ html.intro-skipped .intro-screen {
   object-fit:cover;
 }
 .banner-overlay{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  overflow: visible !important;
+  pointer-events: none;
 }
+
 .product-float{
   position:absolute;
   right:8%;
@@ -1204,21 +1432,17 @@ html.intro-skipped .intro-screen {
   }
 }
 
-/* Floating phone (PS5 banner only): position/size/rotation independent of joystick */
-.product-float.phone{
-  position: absolute;
-  right: 35%;
-  top: 40%;
-  width: 200px;
-  max-width: 20vw;
-  z-index: 2;
-  transform: rotate(-6deg);
-  animation: floatProductPhone 4s ease-in-out infinite;
-}
-@keyframes floatProductPhone{
-  0%{ transform: translateY(0) rotate(-6deg); }
-  50%{ transform: translateY(-10px) rotate(-6deg); }
-  100%{ transform: translateY(0) rotate(-6deg); }
+/* PlayStation logo (PS5 banner overlay) */
+.ps5-brand-logo {
+  position: absolute !important;
+  top: 20% !important;
+  left: 10% !important;
+  width: 200px !important;
+  height: auto !important;
+  z-index: 9999 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .carousel-item h1{
@@ -4389,4 +4613,9 @@ input[type='checkbox'] {
     max-width: 12px;
     fill: #fff;
 }
+.ps5-overlay img{
+	width:auto !important;
+	max-width:none !important;
+}
+
 /* blog-inner-page end */
