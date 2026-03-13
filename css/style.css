@@ -57,10 +57,6 @@
   /* PS5 banner vertical offset – tweak to align with video slide */
   --ps5-banner-offset-y: 0px;
 
-  /* PS5 banner height – edit these to resize banner */
-  --ps5-banner-height-desktop: 820px;
-  --ps5-banner-height-mobile: 220px;
-
   /* JBL banner logo – edit to reposition/resize */
   --jbl-logo-top: 8%;
   --jbl-logo-left: 12%;
@@ -69,6 +65,24 @@
   --jbl-logo-mobile-top: -9%;
   --jbl-logo-mobile-left: 5%;
   --jbl-logo-mobile-size: 150px;
+
+  /* JBL floating products – desktop positions/sizes (edit these only) */
+  --jbl-extreme4-top: 45%;
+  --jbl-extreme4-left: 10%;
+  --jbl-extreme4-size: 220px;
+
+  --jbl-clip5-top: 25%;
+  --jbl-clip5-left: 35%;
+  --jbl-clip5-size: 150px;
+
+  /* JBL floating products – mobile positions/sizes (smaller, stay inside banner) */
+  --jbl-extreme4-mobile-top: 55%;
+  --jbl-extreme4-mobile-left: -5%;
+  --jbl-extreme4-mobile-size: 180px;
+
+  --jbl-clip5-mobile-top: 10%;
+  --jbl-clip5-mobile-left: 30%;
+  --jbl-clip5-mobile-size: 90px;
   
 
 
@@ -1340,6 +1354,60 @@ html.intro-skipped .intro-screen {
   height: auto;
   z-index: 50;
   display: block;
+}
+
+/* JBL floating products */
+.jbl-overlay .jbl-product{
+  position: absolute;
+  display: block;
+  height: auto;
+  z-index: 55;
+  pointer-events: none;
+}
+
+.jbl-overlay .jbl-extreme4{
+  top: var(--jbl-extreme4-top);
+  left: var(--jbl-extreme4-left);
+  width: var(--jbl-extreme4-size) !important;
+  height: auto !important;
+  animation: jblFloat1 6s ease-in-out infinite;
+}
+
+.jbl-overlay .jbl-clip5{
+  top: var(--jbl-clip5-top);
+  left: var(--jbl-clip5-left);
+  width: var(--jbl-clip5-size) !important;
+  height: auto !important;
+  animation: jblFloat2 5.2s ease-in-out infinite;
+}
+
+@keyframes jblFloat1{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-10px); }
+  100%{ transform: translateY(0); }
+}
+@keyframes jblFloat2{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-14px); }
+  100%{ transform: translateY(0); }
+}
+
+/* JBL floating products – mobile layout overrides */
+@media (max-width: 768px){
+  .jbl-overlay .jbl-extreme4{
+    top: var(--jbl-extreme4-mobile-top);
+    left: var(--jbl-extreme4-mobile-left);
+    width: var(--jbl-extreme4-mobile-size) !important;
+    max-width: 45vw;
+    height: auto !important;
+  }
+  .jbl-overlay .jbl-clip5{
+    top: var(--jbl-clip5-mobile-top);
+    left: var(--jbl-clip5-mobile-left);
+    width: var(--jbl-clip5-mobile-size) !important;
+    max-width: 40vw;
+    height: auto !important;
+  }
 }
 /* Overlay: full banner so logo/controller use % from banner (variables in :root) */
 .ps5-overlay{
