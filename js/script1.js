@@ -33,7 +33,9 @@ const dragThreshold = 5;
 
 //Init carousel
 carouselInner.style.minWidth = (totalSlides * 100) + '%';
+restoreCarouselPositionFromStorage();
 loadIndicators();
+setActiveIndicatorByIndex(activeSlide);
 setActiveSlideClass();
 // Autoplay deshabilitado para el slider principal
 loop(false);
@@ -213,6 +215,61 @@ function updateIndicators(){
     document.querySelector('.carousel-indicators span.active').classList.remove('active');
     document.querySelectorAll('.carousel-indicators span')[activeSlide].classList.add('active');
     setActiveSlideClass();
+
+    // Restart iPhone floating product animation whenever its banner becomes active
+    restartIphoneProductAnimationIfNeeded();
+
+    // Persist current slide index for development so carousel stays on same banner after reload
+    try {
+        localStorage.setItem('currentBannerSlide', String(activeSlide));
+    } catch (e) {
+        // ignore storage errors (e.g. disabled cookies)
+    }
+}
+
+function restartIphoneProductAnimationIfNeeded(){
+    if (!slides || !slides.length) return;
+    const currentSlideEl = slides[activeSlide];
+    if (!currentSlideEl || !currentSlideEl.querySelector) return;
+    const products = currentSlideEl.querySelectorAll('.iphone-floating-product, .iphone13-floating-product');
+    if (!products.length) return;
+
+    products.forEach((product) => {
+        // Restart whatever CSS animation is defined for this element
+        product.style.animation = 'none';
+        // Force reflow to flush the style change
+        void product.offsetWidth;
+        product.style.animation = '';
+    });
+}
+
+function restoreCarouselPositionFromStorage(){
+    if (!carouselInner || !totalSlides) return;
+    let savedIndex = null;
+    try {
+        const raw = localStorage.getItem('currentBannerSlide');
+        if (raw !== null) {
+            const parsed = parseInt(raw, 10);
+            if (!Number.isNaN(parsed) && parsed >= 0 && parsed < totalSlides) {
+                savedIndex = parsed;
+            }
+        }
+    } catch (e) {
+        savedIndex = null;
+    }
+
+    if (savedIndex === null || savedIndex === 0) {
+        activeSlide = 0;
+        return;
+    }
+
+    // Rotate the DOM so the saved slide becomes the first visible item
+    for (let i = 0; i < savedIndex; i++) {
+        if (carouselInner.firstElementChild) {
+            carouselInner.append(carouselInner.firstElementChild);
+        }
+    }
+    activeSlide = savedIndex;
 }
 
 function setActiveSlideClass(){

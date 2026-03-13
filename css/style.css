@@ -83,11 +83,36 @@
   --jbl-clip5-mobile-top: 10%;
   --jbl-clip5-mobile-left: 30%;
   --jbl-clip5-mobile-size: 90px;
-  
 
+  /* iPhone banner Apple logo controls (desktop) */
+  --iphone-logo-top: 8%;
+  --iphone-logo-left: 10%;
+  --iphone-logo-size: 90px;
 
+  /* iPhone banner Apple logo controls (mobile) */
+  --iphone-logo-mobile-top: -7%;
+  --iphone-logo-mobile-left: 14%;
+  --iphone-logo-mobile-size: 180px;
 
-  
+  /* iPhone floating product controls (desktop) */
+  --iphone-product-top: 55%;
+  --iphone-product-left: 60%;
+  --iphone-product-size: 260px;
+
+  /* iPhone floating product controls (mobile) */
+  --iphone-product-mobile-top: 60%;
+  --iphone-product-mobile-left: 10%;
+  --iphone-product-mobile-size: 80px;
+
+  /* iPhone 13 floating product controls (desktop) */
+  --iphone13-top: 60%;
+  --iphone13-left: 35%;
+  --iphone13-size: 240px;
+
+  /* iPhone 13 floating product controls (mobile) */
+  --iphone13-mobile-top: 65%;
+  --iphone13-mobile-left: 35%;
+  --iphone13-mobile-size: 150px;
 }
 
 *,
@@ -1310,6 +1335,12 @@ html.intro-skipped .intro-screen {
     padding-bottom: 20px; /* add a little extra bottom space to match video slide height */
     box-sizing: border-box;
   }
+  .iphone_banner_item .banner-slide{
+    height: auto;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
 }
 /* Banner background (PS5 console) fills the section – do not scale overlay images */
 .ps5-banner .ps5-banner-link,
@@ -1337,6 +1368,159 @@ html.intro-skipped .intro-screen {
   width: 100% !important;
   height: calc(100% + 20px) !important; /* extend into padding-bottom */
   object-fit: cover !important;
+}
+
+/* iPhone banner: same layout as other image banners, 16:9 on desktop */
+.iphone_banner_item .banner-slide{
+  position: relative;
+  overflow: hidden;
+}
+.iphone_banner_item .banner-slide a,
+.iphone_banner_item .banner-slide .banner-bg{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.iphone_banner_item .banner-slide .banner-bg{
+  object-fit: cover !important;
+}
+
+/* Apple logo overlay – inside iPhone banner slide, on top of banner image */
+.iphone-banner-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+/* Higher specificity so carousel .carousel-item img (width:100%) does not override */
+.iphone_banner_item .iphone-banner-overlay .iphone-banner-logo{
+  position: absolute;
+  top: var(--iphone-logo-top);
+  left: var(--iphone-logo-left);
+  width: var(--iphone-logo-size) !important;
+  height: auto !important;
+  z-index: 60;
+  display: block;
+}
+
+@media (max-width: 768px){
+  .iphone_banner_item .iphone-banner-overlay .iphone-banner-logo{
+    top: var(--iphone-logo-mobile-top);
+    left: var(--iphone-logo-mobile-left);
+    width: var(--iphone-logo-mobile-size) !important;
+  }
+}
+
+/* iPhone floating product – inside iPhone banner slide */
+.iphone_banner_item .iphone-banner-overlay .iphone-floating-product{
+  position: absolute;
+  top: var(--iphone-product-top);
+  left: var(--iphone-product-left);
+  width: var(--iphone-product-size) !important;
+  height: auto !important;
+  /* Hidden starting pose: below banner, rotated, mirrored */
+  opacity: 0;
+  transform: translate(-50%, 140%) rotate(-25deg) scaleX(-1);
+  z-index: 55;
+  display: block;
+  /* 1) Entrada, 2) flotación suave continua */
+  animation:
+    iphoneProductEntry 1.6s ease-out forwards,
+    iphoneProductFloat 4.2s ease-in-out 1.6s infinite;
+}
+
+/* iPhone 13 floating product – similar entry style */
+.iphone_banner_item .iphone-banner-overlay .iphone13-floating-product{
+  position: absolute;
+  top: var(--iphone13-top);
+  left: var(--iphone13-left);
+  width: var(--iphone13-size) !important;
+  height: auto !important;
+  opacity: 0;
+  transform: translate(-50%, 140%) rotate(-25deg);
+  z-index: 55;
+  display: block;
+  /* 1) Entrada, 2) flotación suave continua */
+  animation:
+    iphone13Entry 1.6s ease-out forwards,
+    iphone13ProductFloat 5.4s ease-in-out 2.3s infinite;
+}
+
+@keyframes iphoneProductEntry{
+  0%{
+    transform: translate(-50%, 140%) rotate(-25deg) scaleX(-1);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(-50%, -20%) rotate(12deg) scaleX(-1);
+    opacity: 1;
+  }
+  80%{
+    transform: translate(-50%, -55%) rotate(-6deg) scaleX(-1);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(-1);
+    opacity: 1;
+  }
+}
+
+/* Flotación suave para iPhone 12 */
+@keyframes iphoneProductFloat{
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(-1);
+  }
+  50%{
+    transform: translate(-50%, -55%) rotate(0deg) scaleX(-1);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(-1);
+  }
+}
+
+@keyframes iphone13Entry{
+  0%{
+    transform: translate(-50%, 140%) rotate(-25deg);
+    opacity: 0;
+  }
+  60%{
+    transform: translate(-50%, -30%) rotate(10deg);
+    opacity: 1;
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Flotación suave para iPhone 13 */
+@keyframes iphone13ProductFloat{
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50%{
+    transform: translate(-50%, -55%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@media (max-width: 768px){
+  .iphone_banner_item .iphone-banner-overlay .iphone-floating-product{
+    top: var(--iphone-product-mobile-top);
+    left: var(--iphone-product-mobile-left);
+    width: var(--iphone-product-mobile-size) !important;
+  }
+
+  .iphone_banner_item .iphone-banner-overlay .iphone13-floating-product{
+    top: var(--iphone13-mobile-top);
+    left: var(--iphone13-mobile-left);
+    width: var(--iphone13-mobile-size) !important;
+  }
 }
 
 /* JBL logo overlay */
