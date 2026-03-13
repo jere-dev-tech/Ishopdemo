@@ -21,6 +21,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- Product template: load product-data.js first so ?product= param is applied before slider init -->
+	<script src="js/product-data.js"></script>
 	<script defer src="js/prodoct_slider.js"></script>
 </head>
 
@@ -59,32 +61,32 @@
 								<!-- Desktop mega menu grid -->
 								<div class="menu-subs menu-mega menu-column-4 menu-productos-grid">
 									<div class="list-item text-center one">
-										<a href="product.html">
+										<a href="product.html?product=iphone15">
 											<img src="./images/61-tgcn-R3L._SX425_.png" alt="Product Images">
 											<h4 class="title">iPhone 15 Pro</h4>
 										</a>
 									</div>
 									<div class="list-item text-center two">
-										<a href="product.html">
+										<a href="product.html?product=ps5">
 											<img src="./images/71Nf9OECD+L._AC_SL1500_.png" alt="Product Images">
 											<h4 class="title">PlayStation 5</h4>
 										</a>
 									</div>
 									<div class="list-item text-center three">
-										<a href="product.html">
+										<a href="product.html?product=nintendo-switch">
 											<img src="./images/apple_ipad-pro-spring21_hero_04202021_big.jpg.large.png"  alt="Product Images">
 											<h4 class="title">Nintendo Switch</h4>
 										</a>
 									</div>
 									<div class="list-item text-center four">
-										<a href="product.html">
+										<a href="product.html?product=gopro">
 											<img src="./images/apple-iphone-11-pro-max_156819558940.png"  alt="Product Images">
 											<h4 class="title">GoPro HERO</h4>
 										</a>
 									</div>
 								</div>
 							</li>
-							<li class="menu-item-has-children">
+							<li class="menu-item-has-children menu-item-categorias">
 								<a href="#">Categorías <i class="ion ion-ios-arrow-down"></i></a>
 								<!-- Mobile simple list for Categorías -->
 								<div class="menu-subs menu-categorias-mobile">
@@ -156,6 +158,7 @@
 	<div class="main-content-inner-wrapper">
 		
 		
+<!-- Product template: content is filled by js/product-data.js when URL has ?product=key (e.g. product.html?product=ps5). Add products in js/product-data.js → products object. -->
 <!--headphones product inner page start-->	
 <!--banner-->
 <div class="product_banner_wrapper">
@@ -174,6 +177,7 @@
 		<div class="headphones_detail_inner_wrapper">
 			<div class="headphones-col" data-aos="fade-right" data-aos-delay="60" data-aos-duration="1200" >
 			<div class="product_slider_main">
+				<!-- Slider and thumbnails are filled by product-data.js when ?product= is present -->
 				<div class="headphones_col_img product_slider">
 			    <a href="#"><img src="images/product_slider_1.png" alt="product"/></a>
 			    <a href="#"><img src="images/product_slider_2.png" alt="product"/></a>	
@@ -195,19 +199,21 @@
 			</div>
 			<div class="headphones-col" data-aos="fade-left" data-aos-delay="60" data-aos-duration="1200">
 				<div class="headphones_heading">
-					<h1>Apple Watch Ultra Cellular, 49mm Titanium</h1>
+					<h1 id="product_title">Apple Watch Ultra Cellular, 49mm Titanium</h1>
 				</div>
 				<div class="headphones_info">
 				
-					<div class="price">				<p class="heading-detail">Precio:</p>		<p class="detail_price"> <del>$270.000</del> $210.000</p></div>
+					<div class="price">				<p class="heading-detail">Precio:</p>		<p class="detail_price" id="product_price"> <del>$270.000</del> $210.000</p></div>
 					<div class="type">				<p class="heading-detail">Tipo:</p>			<p class="type_btn"><a class="wireless" href="#">Inalámbrico</a><a class="wired" href="#">Con cable</a></p></div>
 					<div class="weight_detail">		<p class="heading-detail">Peso:</p>		<p class="weight"><a class="no289" href="#">289 g</a><a class="no250" href="#">250 g</a><a class="no250" href="#">300 g</a><a class="no250" href="#">280 g</a></p></div>
 					<div class="material_detail">	<p class="heading-detail">Material:</p>		<p class="material"><a class="silicon" href="#">Silicone</a><a class="leather" href="#">Cuero</a><a class="leather" href="#">Fibra</a><a class="leather" href="#">Plástico</a></p></div>
-					<div class="vendor_detail">		<p class="heading-detail">Marca:</p>		<p class="vendor">Beat</p></div>
-					<div class="type_detail">		<p class="heading-detail">Tipo:</p>			<p class="type_headphone">Apple Watch</p></div>
-					<div class="available_detail">	<p class="heading-detail">Disponibilidad:</p>	<p class="available">¡En stock!</p></div>
+					<div class="vendor_detail">		<p class="heading-detail">Marca:</p>		<p class="vendor" id="product_vendor">Beat</p></div>
+					<div class="type_detail">		<p class="heading-detail">Tipo:</p>			<p class="type_headphone" id="product_type_value">Apple Watch</p></div>
+					<div class="available_detail">	<p class="heading-detail">Disponibilidad:</p>	<p class="available" id="product_available">¡En stock!</p></div>
 					<div class="quantity_detail">	<p class="heading-detail">Cantidad:</p>		<p class="quantity">1</p></div>
 					<div class="button_list"><a class="btn_cart_add" href="cart.html">Agregar al carrito</a><a class="btn_cart_buy" href="cart.html">Comprar ahora</a><a class="btn_wishlist" href=""><span><i class="fa-regular fa-heart"></i></span></a></div>
+					<!-- WhatsApp button: shown and filled by product-data.js when ?product= is set -->
+					<div id="product_whatsapp_container" class="button_list product_whatsapp_wrapper" style="display:none;"></div>
 					<div class="social_icon"><a href="#"><img src="images/4494475.png" alt="social-icon"/></a><a href="#"><img src="images/4494488.png" alt="social-icon"/></a><a href="#"><img src="images/4494477.png" alt="social-icon"/></a><a href="#"><img src="images/2111646.png" alt="social-icon"/></a><a href="#"><img src="images/4494497.png" alt="social-icon"/></a></div>
 				
 				</div>
@@ -228,7 +234,7 @@
 					</div>
 
 					<div id="London" class="tabcontent" data-aos="fade-left" data-aos-delay="60" data-aos-duration="1200">
-					  <p class="para_1">Producto original con garantía oficial. Especificaciones técnicas según el fabricante. En iShop te asesoramos para que elijas el equipo que mejor se adapte a vos. Consultá disponibilidad y formas de pago.</p>
+					  <p class="para_1" id="product_description">Producto original con garantía oficial. Especificaciones técnicas según el fabricante. En iShop te asesoramos para que elijas el equipo que mejor se adapte a vos. Consultá disponibilidad y formas de pago.</p>
 					</div>
 
 					<div id="Paris" class="tabcontent">
@@ -283,7 +289,7 @@ document.getElementById("defaultOpen").click();
 			<div class="enquiry_column">
 				<div class="enquiry_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
 					<div class="enquiry_col_img">
-						<a href="product.html"><img class="enquiry_img" src="images/img_pro_1.png" alt="headphone"/></a>
+						<a href="product.html?product=apple-watch"><img class="enquiry_img" src="images/img_pro_1.png" alt="headphone"/></a>
 						<!--<img class="enquiry_hover_img" src="images/mgyn3hn-a-apple-original-imafy8wcgvdhsyjj.webp" alt="headphone/">-->
 					</div>
 					<div class="enquiry_img_name">
@@ -294,7 +300,7 @@ document.getElementById("defaultOpen").click();
 				</div>
 				<div class="enquiry_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
 					<div class="enquiry_col_img">
-						<a href="product.html"><img class="enquiry_img" src="images/img_pro_2.png" alt="headphone"/></a>
+						<a href="product.html?product=ps5"><img class="enquiry_img" src="images/img_pro_2.png" alt="headphone"/></a>
 					</div>
 					<div class="enquiry_img_name">
 						<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
@@ -304,7 +310,7 @@ document.getElementById("defaultOpen").click();
 				</div>
 				<div class="enquiry_col">
 					<div class="enquiry_col_img" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
-						<a href="product.html"><img class="enquiry_img" src="images/img_pro_3.png" alt="headphone"/></a>
+						<a href="product.html?product=iphone15"><img class="enquiry_img" src="images/img_pro_3.png" alt="headphone"/></a>
 					</div>
 					<div class="enquiry_img_name">
 					<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
@@ -314,7 +320,7 @@ document.getElementById("defaultOpen").click();
 				</div>
 				<div class="enquiry_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
 					<div class="enquiry_col_img">
-						<a href="product.html"><img class="enquiry_img" src="images/img_pro_4.png" alt="headphone"/></a>
+						<a href="product.html?product=jbl-speaker"><img class="enquiry_img" src="images/img_pro_4.png" alt="headphone"/></a>
 					</div>
 					<div class="enquiry_img_name">
 						<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -338,7 +344,7 @@ document.getElementById("defaultOpen").click();
 			<div class="recently_column">
 				<div class="recently_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
 					<div class="recently_col_img">
-						<a href="product.html"><img class="recently_img" src="images/headphone.jpg" alt="headphone"/></a>
+						<a href="product.html?product=auriculares-beats"><img class="recently_img" src="images/headphone.jpg" alt="headphone"/></a>
 						
 					</div>
 					<div class="recently_img_name">
@@ -349,7 +355,7 @@ document.getElementById("defaultOpen").click();
 				</div>
 				<div class="recently_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
 					<div class="recently_col_img">
-						<a href="product.html"><img class="recently_img" src="images/mgyn3hn-a-apple-original-imafy8wcgvdhsyjj.webp" alt="headphone"/></a>
+						<a href="product.html?product=airpods"><img class="recently_img" src="images/mgyn3hn-a-apple-original-imafy8wcgvdhsyjj.webp" alt="headphone"/></a>
 					</div>
 					<div class="recently_img_name">
 						<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
@@ -359,7 +365,7 @@ document.getElementById("defaultOpen").click();
 				</div>
 				<div class="recently_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
 					<div class="recently_col_img">
-						<a href="product.html"><img class="recently_img" src="images/mgym3hn-a-apple-original-imafy8wc5tej8szy.webp" alt="headphone"/></a>
+						<a href="product.html?product=dualsense"><img class="recently_img" src="images/mgym3hn-a-apple-original-imafy8wc5tej8szy.webp" alt="headphone"/></a>
 					</div>
 					<div class="recently_img_name">
 					<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
@@ -369,7 +375,7 @@ document.getElementById("defaultOpen").click();
 				</div>
 				<div class="recently_col" data-aos="fade-up" data-aos-delay="60" data-aos-duration="1200">
 					<div class="recently_col_img">
-						<a href="product.html"><img class="recently_img" src="images/mgyh3hn-a-apple-original-imafy8wbdnh4kbkd.webp" alt="headphone"/></a>
+						<a href="product.html?product=smartwatch"><img class="recently_img" src="images/mgyh3hn-a-apple-original-imafy8wbdnh4kbkd.webp" alt="headphone"/></a>
 					</div>
 					<div class="recently_img_name">
 						<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>

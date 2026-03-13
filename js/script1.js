@@ -42,8 +42,13 @@ loop(false);
 
 
 //Carousel events
-
-
+// Prevent link drag so carousel always captures swipe (no link preview on drag)
+document.querySelectorAll('.carousel-item a').forEach(link => {
+    link.addEventListener('dragstart', e => e.preventDefault());
+});
+document.querySelectorAll('.carousel-item img').forEach(img => {
+    img.addEventListener('dragstart', e => e.preventDefault());
+});
 
 carouselInner.addEventListener('transitionend', function onCarouselTransitionEnd(){
     if(direction === -1){
@@ -118,7 +123,6 @@ carousel.addEventListener('mouseout',()=>{
 // Mouse drag support – entire hero (including images/links) is draggable
 carousel.addEventListener('mousedown', (e) => {
     if (e.target.closest('.carousel-indicators')) return;
-    e.preventDefault();
     mouseStartX = e.clientX;
     isMouseDown = true;
     hasDragged = false;

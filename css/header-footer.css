@@ -1193,6 +1193,10 @@ ul.main_social_icon {
   }
 
   @media screen and (max-width: 768px) {
+    /* Hide CATEGORÍAS section entirely in mobile hamburger menu */
+    .header .menu > ul.menu-section > li.menu-item-categorias {
+      display: none !important;
+    }
     .header .menu .menu-productos-list-mobile {
       display: block;
       padding: 0.5rem 1rem 0.5rem;

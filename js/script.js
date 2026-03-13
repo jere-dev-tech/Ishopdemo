@@ -126,17 +126,17 @@ jQuery(document).ready(function(){
 	});
 
 	jQuery("#images_change2").mouseenter(function(){
-		jQuery("#images_change2").attr('src', './images/47f8eaed8dbbb0a289ca901e5b6e52dd.png');
+		jQuery("#images_change2").attr('src', './images/264261_zzl2aq.png');
 	});
 	jQuery("#images_change2").mouseleave(function(){
-		jQuery("#images_change2").attr('src', './images/Sony_DualSense.png');
+		jQuery("#images_change2").attr('src', './images/ipad-mini-select-wifi-purple-202109_FMT_WHH.png');
 	});
 
 	jQuery("#images_change3").mouseenter(function(){
-		jQuery("#images_change3").attr('src', './images/264261_zzl2aq.png');
+		jQuery("#images_change3").attr('src', './images/Sony_DualSense.png');
 	});
 	jQuery("#images_change3").mouseleave(function(){
-		jQuery("#images_change3").attr('src', './images/ipad-mini-select-wifi-purple-202109_FMT_WHH.png');
+		jQuery("#images_change3").attr('src', './images/47f8eaed8dbbb0a289ca901e5b6e52dd.png');
 	});
 
 	jQuery("#images_change4").mouseenter(function(){

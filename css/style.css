@@ -809,6 +809,8 @@ html.intro-skipped .intro-screen {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -821,6 +823,8 @@ html.intro-skipped .intro-screen {
   text-transform: uppercase;
   font-weight: 500;
   padding-top: 10px;
+  position: relative;
+  z-index: 3;
 }
 /* shop wrapper end */
 /*most popular product start*/
@@ -1205,16 +1209,31 @@ html.intro-skipped .intro-screen {
   filter: grayscale(100%);
 }
 .shop_category_img img {
-	filter: grayscale(0%);
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .5s ease-in-out;
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: transform 0.4s ease;
+  transition: transform 0.4s ease;
 }
-.shop_category_img img:hover {
-	transform: scale(1.2);
-	opacity: 1;
-  filter: grayscale(100%);
+.shop_category_img:hover img {
+  transform: scale(0.9);
+}
+/* Consolas: subtle zoom on hover (iPhone unchanged) */
+.shop_category_img--consoles:hover img {
+  transform: scale(1.05);
+}
+/* Auriculares: hover image fills same space, correct scale */
+.shop_category_img--headphones img {
+  width: 85%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.shop_category_img--headphones:hover img {
+  transform: scale(1.1);
 }
 
 /* Hero carousel: full viewport width on all breakpoints (breaks out of any container) */
@@ -1251,12 +1270,19 @@ html.intro-skipped .intro-screen {
     user-select: none;
     pointer-events: auto;
 }
+/* Disable link/image dragging so carousel swipe is always used (no link preview on drag) */
+.carousel-item a {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+.carousel-item img {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
 .carousel .carousel-item img {
     width: 100%;
     height: auto;
     display: block;
-    -webkit-user-drag: none;
-    user-drag: none;
     object-fit: unset;
 }
 .carousel .carousel-item-video video {
@@ -3526,6 +3552,26 @@ input.qtyminus {
 	background-color:black;
 	color:white;
 	border:1px solid black;
+}
+/* WhatsApp consult button (product page, filled by product-data.js) */
+.product_whatsapp_wrapper {
+	margin-top: 0.5rem;
+}
+.btn_whatsapp {
+	display: inline-block;
+	background-color: #25D366;
+	color: #fff;
+	border: 1px solid #25D366;
+	padding: 10px 30px;
+	font-size: 18px;
+	text-decoration: none;
+	vertical-align: middle;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.btn_whatsapp:hover {
+	background-color: #1da851;
+	border-color: #1da851;
+	color: #fff;
 }
 .btn_wishlist i {
     color: black;
