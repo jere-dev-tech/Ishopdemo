@@ -54,6 +54,9 @@
   --ps5-pulse-mobile-right: 48%;
   --ps5-pulse-mobile-size: 100px;
 
+  /* PS5 banner vertical offset – tweak to align with video slide */
+  --ps5-banner-offset-y: 0px;
+
   /* PS5 banner height – edit these to resize banner */
   --ps5-banner-height-desktop: 820px;
   --ps5-banner-height-mobile: 220px;
@@ -66,6 +69,11 @@
   --jbl-logo-mobile-top: -9%;
   --jbl-logo-mobile-left: 5%;
   --jbl-logo-mobile-size: 150px;
+  
+
+
+
+  
 }
 
 *,
@@ -126,11 +134,12 @@ img {
   image-rendering: crisp-edges;
 }
 
-/* Scroll-to-top button – minimal, subtle; always available when scrolled */
+/* Scroll-to-top – global, fixed; show when scrollY > 200 */
 .scroll-to-top {
   position: fixed;
-  right: 1.75rem;
-  bottom: 1.75rem;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
   width: 44px;
   height: 44px;
   border-radius: 999px;
@@ -141,14 +150,14 @@ img {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
-  transform: translateY(10px) scale(0.96);
-  transition: opacity 0.3s ease, visibility 0.3s ease,
-              transform 0.3s ease, box-shadow 0.3s ease,
-              background-color 0.3s ease;
+  transition: opacity 0.3s ease;
   cursor: pointer;
-  z-index: 9999;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .scroll-to-top i {
@@ -156,27 +165,88 @@ img {
   color: #111111;
 }
 
-.scroll-to-top.is-visible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0) scale(1);
-}
-
 .scroll-to-top:hover {
-  transform: translateY(0) scale(1.05);
   background-color: #ffffff;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
 }
 
 @media (max-width: 768px) {
   .scroll-to-top {
-    right: 1rem;
-    bottom: 1.25rem;
+    bottom: 24px;
+    right: 24px;
     width: 40px;
     height: 40px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
   }
+}
+
+/* Project cards – cover image and layout (matches other project cards) */
+.project-card {
+  max-width: 360px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-title {
+  margin: 1rem 1rem 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.card-description {
+  margin: 0 1rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--dark-grayish-blue);
+}
+
+.card-tags {
+  margin: 0 1rem 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--color-light-white);
+  border-radius: 4px;
+  color: var(--dark-grayish-blue);
+}
+
+.card-btn {
+  display: inline-block;
+  margin: 0 1rem 1.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-white);
+  background: var(--color-darken);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.card-btn:hover {
+  opacity: 0.9;
 }
 
 /* Lock scroll while intro/presentation screen is visible */
@@ -1152,7 +1222,7 @@ html.intro-skipped .intro-screen {
 }
 .carousel .carousel-item-video video {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
 }
@@ -1187,6 +1257,22 @@ html.intro-skipped .intro-screen {
   position:relative;
   width:100%;
   height:100%;
+}
+
+/* Smartwatch video banner: allow adjustable bottom padding via CSS variable */
+.carousel-item-video .banner-slide{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: var(--watch-banner-bottom-offset);
+  box-sizing: border-box;
+}
+
+.carousel-item-video .banner-slide video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* PS5 banner: full-width hero, console on left (background), logo + controller on right */

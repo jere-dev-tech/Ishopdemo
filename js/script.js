@@ -1,38 +1,37 @@
-// Scroll-to-top button: runs first so it's never blocked; visible after scrolling down on every page
-(function initScrollToTop() {
-	var threshold = 80;
-	function setup(btn) {
-		if (!btn || btn._scrollToTopSetup) return;
-		btn._scrollToTopSetup = true;
-		function updateVisible() {
-			var y = window.pageYOffset !== undefined ? window.pageYOffset : window.scrollY;
-			if (y > threshold) {
-				btn.classList.add('is-visible');
-			} else {
-				btn.classList.remove('is-visible');
-			}
+// Scroll-to-top: simple global logic using window.scrollY; works on Inicio, Servicios, mobile and desktop
+(function () {
+	var THRESHOLD = 200;
+	var btn = null;
+
+	function handleScroll() {
+		if (!btn) return;
+		if (window.scrollY > THRESHOLD) {
+			btn.classList.add('visible');
+		} else {
+			btn.classList.remove('visible');
 		}
-		window.addEventListener('scroll', updateVisible, { passive: true });
-		window.addEventListener('resize', updateVisible, { passive: true });
-		updateVisible();
+	}
+
+	function init() {
+		btn = document.getElementById('scrollToTopBtn');
+		if (!btn) return;
+		if (btn._scrollToTopInit) return;
+		btn._scrollToTopInit = true;
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		handleScroll();
+
 		btn.addEventListener('click', function () {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		});
 	}
-	function run(retries) {
-		retries = retries || 0;
-		var btn = document.getElementById('scrollToTopBtn');
-		if (btn) {
-			setup(btn);
-		} else if (retries < 40) {
-			setTimeout(function () { run(retries + 1); }, 50);
-		}
-	}
+
 	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', run);
+		document.addEventListener('DOMContentLoaded', init);
 	} else {
-		run();
+		init();
 	}
+	window.addEventListener('load', init);
 })();
 
 var menu = document.querySelector('.menu');
